@@ -35,12 +35,12 @@ describe("Navbar component", () => {
 
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading").textContent).toMatch(/home/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
 
     const link = screen.getByRole("link", { name: "Shop" });
     await user.click(link);
 
-    expect(screen.getByRole("heading").textContent).toMatch(/shop/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/shop/i);
   });
 
   it("navigate to cart page", async () => {
@@ -52,12 +52,12 @@ describe("Navbar component", () => {
 
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading").textContent).toMatch(/home/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
 
     const link = screen.getByRole("link", { name: "Cart" });
     await user.click(link);
 
-    expect(screen.getByRole("heading").textContent).toMatch(/cart/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart/i);
   });
 
   it("navigate back to home page", async () => {
@@ -69,12 +69,12 @@ describe("Navbar component", () => {
 
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading").textContent).toMatch(/cart/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart/i);
 
     const link = screen.getByRole("link", { name: "Home" });
     await user.click(link);
 
-    expect(screen.getByRole("heading").textContent).toMatch(/home/i);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
   });
 
   it("displays error page for bad route", () => {
