@@ -178,6 +178,32 @@ describe("ProductCard", () => {
     expect(screen.getByRole("button", { name: /add saucepans to cart/i })).toBeInTheDocument();
   });
 
+  it("renders remove button if page is cart", () => {
+    render(
+      <>
+        <ProductCard
+          id={mockProducts[0].id}
+          imgUrl={mockProducts[0].imgUrl}
+          name={mockProducts[0].name}
+          description={mockProducts[0].description}
+          price={mockProducts[0].price}
+          page="cart"
+        />
+        <ProductCard
+          id={mockProducts[1].id}
+          imgUrl={mockProducts[1].imgUrl}
+          name={mockProducts[1].name}
+          description={mockProducts[1].description}
+          price={mockProducts[1].price}
+          page="cart"
+        />
+      </>
+    );
+
+    expect(screen.getByRole("button", { name: /remove airfryer from cart/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /remove saucepans from cart/i })).toBeInTheDocument();
+  });
+
   it("does not render product card if props is missing", () => {
     render(
       <>

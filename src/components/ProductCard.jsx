@@ -1,4 +1,4 @@
-const ProductCard = ({ id, imgUrl, name, description, price }) => {
+const ProductCard = ({ id, imgUrl, name, description, price, page = null }) => {
   if (typeof id !== "number" || !imgUrl || !name || !description || typeof price !== "number") return null;
   return (
     <>
@@ -20,9 +20,15 @@ const ProductCard = ({ id, imgUrl, name, description, price }) => {
           <button type="button" aria-label={`increase quantity for ${name}`}>
             &#43;
           </button>
-          <button type="button" aria-label={`add ${name} to cart`}>
-            Add to Cart
-          </button>
+          {page === "cart" ? (
+            <button type="button" aria-label={`remove ${name} from cart`}>
+              Remove
+            </button>
+          ) : (
+            <button type="button" aria-label={`add ${name} to cart`}>
+              Add to Cart
+            </button>
+          )}
         </div>
       </div>
     </>
