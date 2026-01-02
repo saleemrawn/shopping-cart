@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import HeroBanner from "./HeroBanner";
-import FeaturedProducts from "./FeaturedProducts";
+import ProductList from "./ProductList";
 import TestProducts from "../products";
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
       <Navbar />
       <h1>Home</h1>
       <HeroBanner />
-      <FeaturedProducts products={TestProducts} />
+      <ProductList title="Featured Products" products={TestProducts} />
     </>
   );
 };
