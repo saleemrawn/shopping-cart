@@ -19,7 +19,7 @@ describe("Home component", () => {
         <Home />
       </BrowserRouter>
     );
-    expect(screen.getByRole("img", { name: "hero banner" })).toBeInTheDocument();
+    expect(screen.getByTestId("hero-banner")).toBeInTheDocument();
   });
 
   it("featured products rendered", () => {
