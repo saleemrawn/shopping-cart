@@ -11,8 +11,8 @@ const ProductList = ({ title, products, page }) => {
               <li key={product.id}>
                 <ProductCard
                   id={product.id}
-                  imgUrl={product.imgUrl}
-                  name={product.name}
+                  imgUrl={product.image}
+                  name={product.title}
                   description={product.description}
                   price={product.price}
                   page={page}
