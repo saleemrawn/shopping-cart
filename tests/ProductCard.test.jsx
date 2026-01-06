@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import ProductCard from "../src/components/ProductCard";
+import userEvent from "@testing-library/user-event";
 
 const mockProducts = [
   { id: 0, imgUrl: "airfryer.jpg", name: "Airfryer", description: "airfryer", price: 4.99 },
@@ -214,5 +215,67 @@ describe("ProductCard", () => {
     expect(screen.queryByRole("heading", { name: /airfryer/i, level: 2 })).not.toBeInTheDocument();
     expect(screen.queryByRole("img", { name: /airfryer/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /add airfryer to cart/i })).not.toBeInTheDocument();
+  });
+
+  it("type 10 into quantity input field", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const input = screen.getByRole("spinbutton");
+    await user.type(input, "10");
+
+    expect(input).toHaveValue(10);
+  });
+
+  it("letters not allowed in quantity input field", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const input = screen.getByRole("spinbutton");
+    await user.clear(input);
+    await user.type(input, "abc");
+
+    expect(input).toHaveValue(null);
+  });
+
+  it("characters not allowed in quantity input field", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const input = screen.getByRole("spinbutton");
+    await user.clear(input);
+    await user.type(input, "@#");
+
+    expect(input).toHaveValue(null);
   });
 });
