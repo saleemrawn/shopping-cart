@@ -31,16 +31,16 @@ describe("Navbar component", () => {
       initialEntries: ["/"],
     });
 
-    render(<RouterProvider router={router} />);
-
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: /home/i, level: 1 }));
 
     const link = screen.getByRole("link", { name: "Shop" });
     await user.click(link);
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/shop/i);
+    expect(await screen.findByRole("heading", { name: /shop/i, level: 1 }));
   });
 
   it("navigate to cart page", async () => {
@@ -48,16 +48,16 @@ describe("Navbar component", () => {
       initialEntries: ["/"],
     });
 
-    render(<RouterProvider router={router} />);
-
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: /home/i, level: 1 }));
 
     const link = screen.getByRole("link", { name: "Cart" });
     await user.click(link);
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart/i);
+    expect(await screen.findByRole("heading", { name: /cart/i, level: 1 }));
   });
 
   it("navigate back to home page", async () => {
@@ -65,16 +65,16 @@ describe("Navbar component", () => {
       initialEntries: ["/cart"],
     });
 
-    render(<RouterProvider router={router} />);
-
     const user = userEvent.setup();
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/cart/i);
+    render(<RouterProvider router={router} />);
+
+    expect(await screen.findByRole("heading", { name: /cart/i, level: 1 }));
 
     const link = screen.getByRole("link", { name: "Home" });
     await user.click(link);
 
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/home/i);
+    expect(await screen.findByRole("heading", { name: /home/i, level: 1 }));
   });
 
   it("displays error page for bad route", () => {

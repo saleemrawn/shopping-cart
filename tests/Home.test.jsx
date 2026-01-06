@@ -4,35 +4,35 @@ import Home from "../src/components/Home";
 import { BrowserRouter } from "react-router";
 
 describe("Home component", () => {
-  it("navbar rendered", () => {
+  it("navbar rendered", async () => {
     render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
+    expect(await screen.findByRole("navigation")).toBeInTheDocument();
   });
 
-  it("hero banner rendered", () => {
+  it("hero banner rendered", async () => {
     render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
-    expect(screen.getByTestId("hero-banner")).toBeInTheDocument();
+    expect(await screen.findByTestId("hero-banner")).toBeInTheDocument();
   });
 
-  it("featured products rendered", () => {
+  it("featured products rendered", async () => {
     render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>
     );
 
-    const list = screen.getByRole("list", { name: "Featured Products" });
+    const list = await screen.findByRole("list", { name: "Featured Products" });
     const products = within(list).getAllByRole("listitem");
 
-    expect(screen.getByRole("heading", { name: "Featured Products", level: 2 })).toBeInTheDocument();
-    expect(products).toHaveLength(10);
+    expect(await screen.findByRole("heading", { name: "Featured Products", level: 2 })).toBeInTheDocument();
+    expect(products).toHaveLength(20);
   });
 });

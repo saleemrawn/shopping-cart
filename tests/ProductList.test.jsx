@@ -5,8 +5,8 @@ import ProductList from "../src/components/ProductList";
 describe("ProductList", () => {
   it("renders correct title heading", () => {
     const mockProducts = [
-      { id: 0, imgUrl: "product.jpg", name: "Product 1", description: "Lorem Ipsum" },
-      { id: 1, imgUrl: "product.jpg", name: "Product 2", description: "Lorem Ipsum" },
+      { id: 0, image: "product.jpg", title: "Product 1", description: "Lorem Ipsum" },
+      { id: 1, image: "product.jpg", title: "Product 2", description: "Lorem Ipsum" },
     ];
 
     render(<ProductList title="Cart" products={mockProducts} />);
@@ -15,8 +15,8 @@ describe("ProductList", () => {
 
   it("renders products with correct structure", () => {
     const mockProducts = [
-      { id: 0, imgUrl: "product.jpg", name: "Product 1", description: "Lorem Ipsum" },
-      { id: 1, imgUrl: "product.jpg", name: "Product 2", description: "Lorem Ipsum" },
+      { id: 0, image: "product.jpg", title: "Product 1", description: "Lorem Ipsum" },
+      { id: 1, image: "product.jpg", title: "Product 2", description: "Lorem Ipsum" },
     ];
 
     render(<ProductList title="Featured Products" products={mockProducts} />);
@@ -32,9 +32,9 @@ describe("ProductList", () => {
     expect(screen.getByText(/no products/i)).toBeInTheDocument();
   });
 
-  it("display correct product details", () => {
+  it("display correct product details", async () => {
     const mockProduct = [
-      { id: 0, imgUrl: "product.jpg", name: "Test Product", description: "Lorem Ipsum", price: 4.99 },
+      { id: 0, image: "product.jpg", title: "Test Product", description: "Lorem Ipsum", price: 4.99 },
     ];
 
     render(<ProductList products={mockProduct} />);
