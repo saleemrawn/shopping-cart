@@ -237,6 +237,26 @@ describe("ProductCard", () => {
     expect(input).toHaveValue(10);
   });
 
+  it("typing 200 displays 100 in quantity input field", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const input = screen.getByRole("spinbutton");
+    await user.type(input, "200");
+
+    expect(input).toHaveValue(100);
+  });
+
   it("letters not allowed in quantity input field", async () => {
     const user = userEvent.setup();
 
@@ -277,5 +297,50 @@ describe("ProductCard", () => {
     await user.type(input, "@#");
 
     expect(input).toHaveValue(null);
+  });
+
+  it("click increase quantity button to add 1 quantity", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const button = screen.getByRole("button", { name: /increase quantity for airfryer/i });
+    const input = screen.getByRole("spinbutton");
+
+    await user.click(button);
+
+    expect(input).toHaveValue(1);
+  });
+
+  it("click decrease quantity button to minus 1 quantity", async () => {
+    const user = userEvent.setup();
+
+    render(
+      <ProductCard
+        id={mockProducts[0].id}
+        imgUrl={mockProducts[0].imgUrl}
+        name={mockProducts[0].name}
+        description={mockProducts[0].description}
+        price={mockProducts[0].price}
+        page="cart"
+      />
+    );
+
+    const button = screen.getByRole("button", { name: /decrease quantity for airfryer/i });
+    const input = screen.getByRole("spinbutton");
+
+    await user.type(input, "5");
+    await user.click(button);
+
+    expect(input).toHaveValue(4);
   });
 });
