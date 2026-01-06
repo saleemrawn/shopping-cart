@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 const ProductCard = ({ id, imgUrl, name, description, price, page = null }) => {
+  const [quantity, setQuantity] = useState(0);
+
+  const handleQuantityChange = (e) => {
+    setQuantity(e.target.value);
+  };
+
   if (typeof id !== "number" || !imgUrl || !name || !description || typeof price !== "number") return null;
   return (
     <>
@@ -16,7 +24,7 @@ const ProductCard = ({ id, imgUrl, name, description, price, page = null }) => {
           <label id={`${id}-quantity`} hidden>
             Quantity for {name}
           </label>
-          <input type="text" value="0" aria-labelledby={`${id}-quantity`} />
+          <input type="number" value={quantity} aria-labelledby={`${id}-quantity`} onChange={handleQuantityChange} />
           <button type="button" aria-label={`increase quantity for ${name}`}>
             &#43;
           </button>

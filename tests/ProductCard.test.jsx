@@ -76,8 +76,8 @@ describe("ProductCard", () => {
       </>
     );
 
-    expect(screen.getByRole("textbox", { name: /quantity for airfryer/i })).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: /quantity for saucepans/i })).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
   });
 
   it("renders correct product images", () => {
@@ -150,8 +150,8 @@ describe("ProductCard", () => {
       </>
     );
 
-    expect(screen.getByRole("textbox", { name: /quantity for airfryer/i })).toBeInTheDocument();
-    expect(screen.getByRole("textbox", { name: /quantity for saucepans/i })).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
   });
 
   it("renders add to cart button", () => {
