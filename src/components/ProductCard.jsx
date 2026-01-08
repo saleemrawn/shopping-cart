@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useCart } from "../CartProvider";
 
 const ProductCard = ({ id, imgUrl, name, description, price, page = null }) => {
   const [quantity, setQuantity] = useState(0);
+  const { addToCart, removeFromCart } = useCart();
 
   const handleQuantityChange = (e) => {
     const value = e.target.value;
@@ -52,11 +54,14 @@ const ProductCard = ({ id, imgUrl, name, description, price, page = null }) => {
             &#43;
           </button>
           {page === "cart" ? (
-            <button type="button" aria-label={`remove ${name} from cart`}>
+            <button type="button" aria-label={`remove ${name} from cart`} onClick={() => removeFromCart(id)}>
               Remove
             </button>
           ) : (
-            <button type="button" aria-label={`add ${name} to cart`}>
+            <button
+              type="button"
+              aria-label={`add ${name} to cart`}
+              onClick={() => addToCart({ id: id, image: imgUrl, title: name, description: description, price: price })}>
               Add to Cart
             </button>
           )}
