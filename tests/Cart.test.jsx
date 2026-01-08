@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { renderWithProviders } from "./test-utils";
 import Cart from "../src/components/Cart";
 
@@ -8,7 +8,11 @@ describe("Cart component", () => {
 
   beforeEach(() => {
     mockCart = {
-      cartItems: [{ id: 0, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 }],
+      cartItems: [
+        { id: 0, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
+        { id: 1, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
+        { id: 2, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
+      ],
       addToCart: vi.fn(),
       removeFromCart: vi.fn(),
     };
@@ -22,5 +26,24 @@ describe("Cart component", () => {
   it("renders correct page heading", () => {
     render(renderWithProviders(<Cart />, { cart: mockCart }));
     expect(screen.getByRole("heading", { name: /cart/i, level: 1 })).toBeInTheDocument();
+  });
+
+  it("renders correct list of products added to cart", async () => {
+    render(renderWithProviders(<Cart />, { cart: mockCart }));
+
+    const list = await screen.findByRole("list", { name: /items/i });
+    const products = within(list).getAllByRole("listitem");
+
+    expect(products).toHaveLength(3);
+  });
+
+  it("displays message when no products added to cart", async () => {
+    const mockCart = {
+      cartItems: [],
+      addToCart: vi.fn(),
+      removeFromCart: vi.fn(),
+    };
+    render(renderWithProviders(<Cart />, { cart: mockCart }));
+    expect(screen.getByText(/no products/i)).toBeInTheDocument();
   });
 });
