@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import ProductList from "../src/components/ProductList";
+import { renderWithProviders } from "./test-utils";
 
 describe("ProductList", () => {
   it("renders correct title heading", () => {
@@ -9,7 +10,8 @@ describe("ProductList", () => {
       { id: 1, image: "product.jpg", title: "Product 2", description: "Lorem Ipsum" },
     ];
 
-    render(<ProductList title="Cart" products={mockProducts} />);
+    render(renderWithProviders(<ProductList title="Cart" products={mockProducts} />));
+
     expect(screen.getByRole("heading", { name: "Cart", level: 2 })).toBeInTheDocument();
   });
 
@@ -19,7 +21,7 @@ describe("ProductList", () => {
       { id: 1, image: "product.jpg", title: "Product 2", description: "Lorem Ipsum" },
     ];
 
-    render(<ProductList title="Featured Products" products={mockProducts} />);
+    render(renderWithProviders(<ProductList title="Featured Products" products={mockProducts} />));
 
     const list = screen.getByRole("list", { name: "Featured Products" });
     const products = within(list).getAllByRole("listitem");
@@ -37,7 +39,7 @@ describe("ProductList", () => {
       { id: 0, image: "product.jpg", title: "Test Product", description: "Lorem Ipsum", price: 4.99 },
     ];
 
-    render(<ProductList products={mockProduct} />);
+    render(renderWithProviders(<ProductList products={mockProduct} />));
 
     expect(screen.getByRole("heading", { name: /test product/i, level: 2 })).toBeInTheDocument();
   });
