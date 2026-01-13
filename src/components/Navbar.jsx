@@ -50,7 +50,7 @@ const StyledLogoLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: ${(props) => props.theme.colours.green};
+    color: ${(props) => props.theme.colours.chambray};
   }
 `;
 
@@ -64,7 +64,8 @@ const StyledNavLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    background-color: ${(props) => props.theme.colours.green};
+    background-color: ${(props) => props.theme.colours.sapphire};
+    color: ${(props) => props.theme.colours.white};
   }
 `;
 
