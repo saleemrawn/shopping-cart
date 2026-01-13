@@ -13,12 +13,20 @@ const theme = {
   },
 
   colours: {
-    green: "#49cb52",
-    mint: "#95e1c4",
-    teal: "#6dd5c4",
-    lightblack: "#2d2d2d",
-    charcoal: "#525050",
-    white: "#f1f1f1",
+    lavender: "#cecdfa",
+    sapphire: "#1e2d65",
+    chambray: "#34558c",
+    grey50: "#FAFAFA",
+    grey100: "#F5F5F5",
+    grey200: "#EEEEEE",
+    grey300: "#E0E0E0",
+    grey400: "#BDBDBD",
+    grey500: "#9E9E9E",
+    grey600: "#757575",
+    grey700: "#616161",
+    grey800: "#424242",
+    grey900: "#212121",
+    white: "#ffffff",
   },
 
   spacing: {
