@@ -12,6 +12,14 @@ const theme = {
     black: 900,
   },
 
+  headings: {
+    h1: "2.5rem",
+    h2: "2rem",
+    h3: "1.75rem",
+    h4: "1.5rem",
+    h5: "1.25rem",
+  },
+
   colours: {
     lavender: "#cecdfa",
     sapphire: "#1e2d65",
@@ -43,6 +51,15 @@ const theme = {
     space80: "5rem",
     space96: "6rem",
     space160: "10rem",
+  },
+
+  breakpoints: {
+    xs: "0", // X-Small devices (portrait phones, less than 576px)
+    sm: "576px", // Small devices (landscape phones, 576px and up)
+    md: "768px", // Medium devices (tablets, 768px and up)
+    lg: "992px", // Large devices (desktops, 992px and up)
+    xl: "1200px", // X-Large devices (large desktops, 1200px and up)
+    xxl: "1400px", // XX-Large devices (larger desktops, 1400px and up)
   },
 };
 
