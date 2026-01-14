@@ -9,7 +9,7 @@ const Cart = () => {
     <>
       <Navbar />
       <h1 id="cart-heading">Cart</h1>
-      <ProductList title="Items" products={cartItems} page="cart" />
+      <ProductList title="Items" products={cartItems} page="cart" display="list" />
     </>
   );
 };

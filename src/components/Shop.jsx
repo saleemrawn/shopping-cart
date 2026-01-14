@@ -12,7 +12,7 @@ const Shop = () => {
     <>
       <Navbar />
       <h1 id="shop-heading">Shop</h1>
-      <ProductList title="Trending" products={products} />
+      <ProductList title="Trending" products={products} display="grid" />
     </>
   );
 };
