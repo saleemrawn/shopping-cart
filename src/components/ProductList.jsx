@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
+import Title from "./Title";
 
 const StyledProductList = styled.ul`
   display: grid;
@@ -9,8 +10,7 @@ const StyledProductList = styled.ul`
   margin: 0 ${(props) => props.theme.spacing.space24};
 `;
 
-const Title = styled.h2`
-  font-weight: ${(props) => props.theme.weights.black};
+const StyledTitle = styled(Title)`
   margin: ${(props) => props.theme.spacing.space40} 0;
   text-align: center;
 `;
@@ -18,7 +18,7 @@ const Title = styled.h2`
 const ProductList = ({ title, products, page, display }) => {
   return (
     <>
-      {title && <Title>{title}</Title>}
+      {title && <StyledTitle level={2}>{title}</StyledTitle>}
       {products.length > 0 ? (
         <StyledProductList aria-labelledby="product-list-heading" display={display}>
           {products.map((product) => {
