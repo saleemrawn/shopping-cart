@@ -15,11 +15,16 @@ const StyledTitle = styled(Title)`
   text-align: center;
 `;
 
+const ProductsMessage = styled.div`
+  font-weight: ${(props) => props.theme.weights.bold};
+  text-align: center;
+`;
+
 const ProductList = ({ title, products, page, display }) => {
   return (
     <>
       {title && <StyledTitle level={2}>{title}</StyledTitle>}
-      {products.length > 0 ? (
+      {products.length > 0 && (
         <StyledProductList aria-labelledby="product-list-heading" display={display}>
           {products.map((product) => {
             return (
@@ -37,9 +42,9 @@ const ProductList = ({ title, products, page, display }) => {
             );
           })}
         </StyledProductList>
-      ) : (
-        <div>No products</div>
       )}
+      {products.length === 0 && page === "cart" && <ProductsMessage>Your cart is empty</ProductsMessage>}
+      {products.length === 0 && page !== "cart" && <ProductsMessage>No products available</ProductsMessage>}
     </>
   );
 };
