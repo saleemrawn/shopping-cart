@@ -15,7 +15,7 @@ const Home = () => {
     <>
       <Navbar />
       <main>
-        <HeroBanner images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+        <HeroBanner title="One Store, Infinite Options" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
         <ProductList title="Featured Products" products={products} display="grid" />
       </main>
     </>
