@@ -13,11 +13,25 @@ const theme = {
   },
 
   headings: {
-    h1: "2.5rem",
-    h2: "2rem",
-    h3: "1.75rem",
-    h4: "1.5rem",
-    h5: "1.25rem",
+    desktop: {
+      hero: "4rem",
+      h1: "2.986rem",
+      h2: "2.488rem",
+      h3: "2.074rem",
+      h4: "1.728rem",
+      h5: "1.44rem",
+      h6: "1.2rem",
+    },
+
+    mobile: {
+      hero: "2rem",
+      h1: "1.476rem",
+      h2: "1.383rem",
+      h3: "1.296rem",
+      h4: "1.215rem",
+      h5: "1.138rem",
+      h6: "1.067rem",
+    },
   },
 
   colours: {
