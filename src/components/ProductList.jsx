@@ -7,7 +7,7 @@ const StyledProductList = styled.ul`
   grid-template-columns: ${(props) => (props.display === "grid" ? "repeat(auto-fill, minmax(320px, 1fr))" : "1fr")};
   grid-template-rows: ${(props) => (props.display === "grid" ? "repeat(2, 1fr)" : "1fr")};
   gap: ${(props) => props.theme.spacing.space40} ${(props) => props.theme.spacing.space24};
-  margin: 0 ${(props) => props.theme.spacing.space24};
+  margin: 0 ${(props) => props.theme.spacing.space24} ${(props) => props.theme.spacing.space64} ${(props) => props.theme.spacing.space24};
 `;
 
 const StyledTitle = styled(Title)`
