@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <>
       <Navbar />
-      <HeroBanner images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+      <HeroBanner title="Cart" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
       <ProductList title="Items" products={cartItems} page="cart" display="list" />
     </>
   );

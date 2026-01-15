@@ -14,7 +14,7 @@ const Shop = () => {
   return (
     <>
       <Navbar />
-      <HeroBanner images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+      <HeroBanner title="Shop" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
       <ProductList title="Trending" products={products} display="grid" />
     </>
   );
