@@ -5,10 +5,15 @@ import styled from "styled-components";
 
 const ProductCardWrapper = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
-  align-items: ${(props) => (props.display === "grid" ? "none" : "center")};
+  flex-direction: column;
+  align-items: none;
   gap: ${(props) => props.theme.spacing.space24};
   box-shadow: rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}) {
+    flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
+    align-items: ${(props) => (props.display === "grid" ? "none" : "center")};
+  }
 `;
 
 const ProductImage = styled.img`
@@ -18,17 +23,27 @@ const ProductImage = styled.img`
   object-fit: contain;
   background-color: ${(props) => props.theme.colours.grey200};
   padding: ${(props) => props.theme.spacing.space24};
-  max-width: ${(props) => (props.display === "list" ? "13.75rem" : null)};
+  max-width: none;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}) {
+    max-width: ${(props) => (props.display === "list" ? "13.75rem" : "none")};
+  }
 `;
 
 const ProductMainWrapper = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
-  align-items: ${(props) => (props.display === "grid" ? "unset" : "center")};
+  flex-direction: column;
+  align-items: unset;
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding: ${(props) => (props.display === "grid" ? props.theme.spacing.space24 : `0 ${props.theme.spacing.space24} 0 0`)};
+  padding: ${(props) => props.theme.spacing.space24};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}) {
+    flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
+    align-items: ${(props) => (props.display === "grid" ? "unset" : "center")};
+    padding: ${(props) => (props.display === "grid" ? props.theme.spacing.space24 : `0 ${props.theme.spacing.space24} 0 0`)};
+  }
 `;
 
 const ProductInfo = styled.div`
@@ -54,8 +69,12 @@ const ProductPrice = styled.div`
 
 const ProductCardControls = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
+  flex-direction: column;
   gap: 1.5rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}) {
+    flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
+  }
 `;
 
 const ProductQuantity = styled.div`
