@@ -1,6 +1,9 @@
 import useFetchProducts from "../fetch";
+import HeroBanner from "./HeroBanner";
 import Navbar from "./Navbar";
 import ProductList from "./ProductList";
+import DesktopBanner from "../assets/shop-banner-desktop.jpg";
+import MobileBanner from "../assets/shop-banner-mobile.jpg";
 
 const Shop = () => {
   const { products, error, loading } = useFetchProducts();
@@ -11,7 +14,7 @@ const Shop = () => {
   return (
     <>
       <Navbar />
-      <h1 id="shop-heading">Shop</h1>
+      <HeroBanner images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
       <ProductList title="Trending" products={products} display="grid" />
     </>
   );
