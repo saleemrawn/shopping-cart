@@ -12,7 +12,12 @@ const StyledProductList = styled.ul`
 
 const StyledTitle = styled(Title)`
   margin: ${(props) => props.theme.spacing.space40} 0;
+  font-size: ${(props) => props.theme.headings.mobile.h2};
   text-align: center;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.md}) {
+    font-size: ${(props) => props.theme.headings.desktop.h2};
+  }
 `;
 
 const ProductsMessage = styled.div`
