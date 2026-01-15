@@ -64,7 +64,7 @@ const ProductName = styled.h3`
 
 const ProductPrice = styled.div`
   font-weight: ${(props) => props.theme.weights.bold};
-  font-size: 1.25rem;
+  font-size: ${(props) => props.theme.headings.desktop.h6};
 `;
 
 const ProductCardControls = styled.div`
