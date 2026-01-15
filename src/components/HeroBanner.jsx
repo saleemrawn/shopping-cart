@@ -1,23 +1,41 @@
 import styled from "styled-components";
 
 const BannerWrapper = styled.div`
-  height: calc(55vh - 80px);
+  height: calc(40vh - 80px);
+`;
+
+const BannerPicture = styled.picture`
+  height: inherit;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+`;
+
+const BannerSource = styled.source`
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: bottom;
 `;
 
 const BannerImage = styled.img`
-  height: 100%;
-  width: 100%;
+  height: inherit;
+  width: inherit;
   object-fit: cover;
+  object-position: bottom;
 `;
 
-const HeroBanner = ({ image, description }) => {
-  if (!image) return null;
+const HeroBanner = ({ images }) => {
+  if (!images) return null;
 
   return (
     <>
       {
         <BannerWrapper data-testid="hero-banner">
-          <BannerImage src={image} alt={description} />
+          <BannerPicture>
+            <BannerSource media="(max-width: 600px)" srcSet={images.mobile} />
+            <BannerImage src={images.desktop} alt="" />
+          </BannerPicture>
         </BannerWrapper>
       }
     </>
