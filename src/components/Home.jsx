@@ -2,6 +2,8 @@ import Navbar from "./Navbar";
 import HeroBanner from "./HeroBanner";
 import ProductList from "./ProductList";
 import useFetchProducts from "../fetch";
+import DesktopBanner from "../assets/home-banner-desktop.jpg";
+import MobileBanner from "../assets/home-banner-mobile.jpg";
 
 const Home = () => {
   const { products, error, loading } = useFetchProducts();
@@ -12,9 +14,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
-      <HeroBanner />
-      <ProductList title="Featured Products" products={products} />
+      <main>
+        <HeroBanner images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+        <ProductList title="Featured Products" products={products} display="grid" />
+      </main>
     </>
   );
 };
