@@ -1,7 +1,10 @@
-import { Link } from "react-router";
 import styled from "styled-components";
+import { Link } from "react-router";
+import { Menu, CircleX } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const StyledNavbar = styled.nav`
+  position: relative;
   height: ${(props) => props.theme.spacing.space80};
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -20,25 +23,55 @@ const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-weight: ${(props) => props.theme.weights.black};
   font-size: 2rem;
   text-transform: lowercase;
+  font-family: ${(props) => props.theme.fonts.main};
+  font-weight: ${(props) => props.theme.weights.black};
 `;
 
 const NavLinksList = styled.ul`
-  height: inherit;
+  height: 100%;
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    height: inherit;
+    flex-direction: row;
+  }
 `;
 
 const NavLinksListItem = styled.li`
   height: inherit;
+
+  &:first-child {
+    width: 100%;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    &:first-child {
+      width: auto;
+    }
+  }
 `;
 
 const NavLinks = styled.div`
-  height: inherit;
+  height: 100vh;
   display: flex;
-  justify-self: end;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: ${(props) => props.theme.colours.sapphire};
+  width: 100vw;
+  z-index: 2;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    height: inherit;
+    flex-direction: row;
+    justify-self: end;
+    background-color: ${(props) => props.theme.colours.white};
+    position: relative;
+    width: auto;
+  }
 `;
 
 const StyledLogoLink = styled(Link)`
@@ -58,18 +91,93 @@ const StyledNavLink = styled(Link)`
   height: inherit;
   display: flex;
   align-items: center;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-weight: ${(props) => props.theme.weights.bold};
-  padding: 0 ${(props) => props.theme.spacing.space40};
   text-decoration: none;
+  font-family: ${(props) => props.theme.fonts.main};
+  font-weight: ${(props) => props.theme.weights.black};
+  font-size: ${(props) => props.theme.headings.mobile.hero};
+  padding: 0 ${(props) => props.theme.spacing.space40};
+  color: ${(props) => props.theme.colours.white};
 
   &:hover {
     background-color: ${(props) => props.theme.colours.sapphire};
     color: ${(props) => props.theme.colours.white};
   }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    font-size: 1rem;
+    color: ${(props) => props.theme.colours.grey900};
+  }
+`;
+
+const HamburgerWrapper = styled.div`
+  height: inherit;
+  display: flex;
+  justify-content: flex-end;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    display: none;
+  }
+`;
+
+const HamburgerButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 0 ${(props) => props.theme.spacing.space24};
+
+  &:hover {
+    background-color: lightgrey;
+  }
+`;
+
+const CloseNavButton = styled.button`
+  height: inherit;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  gap: ${(props) => props.theme.spacing.space8};
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-weight: ${(props) => props.theme.weights.black};
+  font-size: ${(props) => props.theme.headings.mobile.hero};
+  color: ${(props) => props.theme.colours.white};
+  padding-left: ${(props) => props.theme.spacing.space40};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    display: none;
+  }
 `;
 
 const Navbar = () => {
+  const [navOpen, setNavOpen] = useState(window.innerWidth >= 992);
+  const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleBrowserResize);
+
+    return () => {
+      window.removeEventListener("resize", handleBrowserResize);
+    };
+  }, []);
+
+  const handleBrowserResize = () => {
+    setBrowserWidth(window.innerWidth);
+    if (window.innerWidth < 992) setNavOpen(false);
+    if (window.innerWidth >= 992) setNavOpen(true);
+  };
+
+  const handleNavToggle = () => {
+    if (navOpen) {
+      setNavOpen(false);
+      return;
+    }
+
+    setNavOpen(true);
+  };
+
   return (
     <StyledNavbar>
       <LogoWrapper>
@@ -77,19 +185,59 @@ const Navbar = () => {
           <Logo>Multiproducts</Logo>
         </StyledLogoLink>
       </LogoWrapper>
-      <NavLinks>
-        <NavLinksList>
-          <NavLinksListItem>
-            <StyledNavLink to="/">Home</StyledNavLink>
-          </NavLinksListItem>
-          <NavLinksListItem>
-            <StyledNavLink to="/shop">Shop</StyledNavLink>
-          </NavLinksListItem>
-          <NavLinksListItem>
-            <StyledNavLink to="/cart">Cart</StyledNavLink>
-          </NavLinksListItem>
-        </NavLinksList>
-      </NavLinks>
+
+      {window.innerWidth < 992 ? (
+        <HamburgerWrapper>
+          <HamburgerButton onClick={handleNavToggle}>
+            <Menu strokeWidth={3} />
+          </HamburgerButton>
+        </HamburgerWrapper>
+      ) : null}
+
+      {navOpen ? (
+        <NavLinks>
+          <NavLinksList>
+            {window.innerWidth < 992 ? (
+              <NavLinksListItem>
+                <CloseNavButton onClick={handleNavToggle}>
+                  <CircleX strokeWidth={3} />
+                  Close
+                </CloseNavButton>
+              </NavLinksListItem>
+            ) : null}
+
+            <NavLinksListItem>
+              <StyledNavLink
+                to="/"
+                onClick={() => {
+                  window.innerWidth < 992 && setNavOpen(false);
+                }}>
+                Home
+              </StyledNavLink>
+            </NavLinksListItem>
+
+            <NavLinksListItem>
+              <StyledNavLink
+                to="/shop"
+                onClick={() => {
+                  window.innerWidth < 992 && setNavOpen(false);
+                }}>
+                Shop
+              </StyledNavLink>
+            </NavLinksListItem>
+
+            <NavLinksListItem>
+              <StyledNavLink
+                to="/cart"
+                onClick={() => {
+                  window.innerWidth < 992 && setNavOpen(false);
+                }}>
+                Cart
+              </StyledNavLink>
+            </NavLinksListItem>
+          </NavLinksList>
+        </NavLinks>
+      ) : null}
     </StyledNavbar>
   );
 };
