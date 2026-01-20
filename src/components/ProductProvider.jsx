@@ -10,7 +10,7 @@ export const useProducts = () => {
   const ctx = useContext(ProductsContext);
 
   if (!ctx) {
-    throw new Error("useCart must be used within CartProvider");
+    throw new Error("useProducts must be used within ProductsProvider");
   }
 
   return ctx;
