@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "../CartProvider";
-import { ShoppingCart, Plus, Minus } from "lucide-react";
+import { ShoppingCart, Plus, Minus, CircleCheckBig } from "lucide-react";
 import styled from "styled-components";
 
 const ProductCardWrapper = styled.div`
@@ -102,6 +102,15 @@ const Button = styled.button`
   }
 `;
 
+const AddedToCartButton = styled(Button)`
+  background-color: ${(props) => props.theme.colours.sapphire};
+  color: white;
+
+  &:disabled:hover {
+    background-color: ${(props) => props.theme.colours.sapphire};
+  }
+`;
+
 const Textbox = styled.input`
   font-size: inherit;
   text-align: center;
@@ -111,7 +120,15 @@ const Textbox = styled.input`
 
 const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page = null, display }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(quantity);
-  const { addToCart, removeFromCart } = useCart();
+  const [addedToCart, setAddedToCart] = useState(false);
+  const { cartItems, addToCart, removeFromCart } = useCart();
+
+  useEffect(() => {
+    const inCart = cartItems.some((item) => item.id === id);
+    if (inCart) {
+      setAddedToCart(true);
+    }
+  }, []);
 
   const handleQuantityChange = (e) => {
     const value = e.target.value;
@@ -153,27 +170,54 @@ const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page 
           </ProductInfo>
           <ProductCardControls display={display}>
             <ProductQuantity>
-              <Button type="button" aria-label={`decrease quantity for ${name}`} onClick={handleDecreaseQuantity}>
+              <Button
+                type="button"
+                aria-label={`decrease quantity for ${name}`}
+                onClick={handleDecreaseQuantity}
+                disabled={page !== "cart" && addedToCart}>
                 <Minus />
               </Button>
               <label id={`${id}-quantity`} hidden>
                 Quantity for {name}
               </label>
-              <Textbox type="number" value={selectedQuantity} aria-labelledby={`${id}-quantity`} onChange={handleQuantityChange} />
-              <Button type="button" aria-label={`increase quantity for ${name}`} onClick={handleIncreaseQuantity}>
+              <Textbox
+                type="number"
+                value={selectedQuantity}
+                aria-labelledby={`${id}-quantity`}
+                onChange={handleQuantityChange}
+                disabled={page !== "cart" && addedToCart}
+              />
+              <Button
+                type="button"
+                aria-label={`increase quantity for ${name}`}
+                onClick={handleIncreaseQuantity}
+                disabled={page !== "cart" && addedToCart}>
                 <Plus />
               </Button>
             </ProductQuantity>
-            {page === "cart" ? (
-              <Button type="button" aria-label={`remove ${name} from cart`} onClick={() => removeFromCart(id)}>
-                Remove
-              </Button>
-            ) : (
+
+            {page !== "cart" && !addedToCart && (
               <Button
                 type="button"
                 aria-label={`add ${name} to cart`}
-                onClick={() => addToCart({ id: id, image: imgUrl, title: name, description: description, price: price, quantity: selectedQuantity })}>
+                onClick={() => {
+                  addToCart({ id: id, image: imgUrl, title: name, description: description, price: price, quantity: selectedQuantity });
+                  setAddedToCart(true);
+                }}>
                 <ShoppingCart size={20} /> Add to Cart
+              </Button>
+            )}
+
+            {page !== "cart" && addedToCart && (
+              <AddedToCartButton disabled>
+                <CircleCheckBig size={20} />
+                Added to Cart
+              </AddedToCartButton>
+            )}
+
+            {page === "cart" && (
+              <Button type="button" aria-label={`remove ${name} from cart`} onClick={() => removeFromCart(id)}>
+                Remove
               </Button>
             )}
           </ProductCardControls>
