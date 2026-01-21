@@ -3,8 +3,9 @@ import HeroBanner from "./HeroBanner";
 import ProductList from "./ProductList";
 import DesktopBanner from "../assets/home-banner-desktop.jpg";
 import MobileBanner from "../assets/home-banner-mobile.jpg";
-import { useProducts } from "./ProductProvider";
 import Loader from "./Loader";
+import ErrorMessage from "./ErrorMessage";
+import { useProducts } from "./ProductProvider";
 
 const Home = () => {
   const { products, error, loading } = useProducts();
@@ -15,11 +16,11 @@ const Home = () => {
       {!loading && (
         <>
           <Navbar />
-          {error && <div>A network error was encountered.</div>}
           {products && (
             <main>
               <HeroBanner title="One Store, Infinite Options" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
               <ProductList title="Featured Products" products={products} display="grid" />
+              {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
             </main>
           )}
         </>
