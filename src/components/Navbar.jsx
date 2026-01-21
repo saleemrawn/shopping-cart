@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router";
 import { Menu, CircleX } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useCart } from "../CartProvider";
 
 const StyledNavbar = styled.nav`
   position: relative;
@@ -91,6 +92,7 @@ const StyledNavLink = styled(Link)`
   height: inherit;
   display: flex;
   align-items: center;
+  gap: ${(props) => props.theme.spacing.space16};
   text-decoration: none;
   font-family: ${(props) => props.theme.fonts.main};
   font-weight: ${(props) => props.theme.weights.black};
@@ -104,6 +106,7 @@ const StyledNavLink = styled(Link)`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    gap: ${(props) => props.theme.spacing.space4};
     font-size: 1rem;
     color: ${(props) => props.theme.colours.grey900};
   }
@@ -151,9 +154,31 @@ const CloseNavButton = styled.button`
   }
 `;
 
+const CartQuantity = styled.div`
+  height: ${(props) => props.theme.spacing.space32};
+  width: ${(props) => props.theme.spacing.space32};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: ${(props) => props.theme.weights.bold};
+  background-color: ${(props) => props.theme.colours.white};
+  color: ${(props) => props.theme.colours.sapphire};
+  border-radius: 6.25rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}) {
+    height: 1.25rem;
+    width: 1.25rem;
+    font-size: 0.875rem;
+    background-color: ${(props) => props.theme.colours.sapphire};
+    color: ${(props) => props.theme.colours.white};
+  }
+`;
+
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(window.innerWidth >= 992);
   const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
+  const { cartItems } = useCart();
 
   useEffect(() => {
     window.addEventListener("resize", handleBrowserResize);
@@ -233,6 +258,7 @@ const Navbar = () => {
                   window.innerWidth < 992 && setNavOpen(false);
                 }}>
                 Cart
+                <CartQuantity>{cartItems.length}</CartQuantity>
               </StyledNavLink>
             </NavLinksListItem>
           </NavLinksList>
