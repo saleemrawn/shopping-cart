@@ -131,7 +131,8 @@ const HamburgerButton = styled.button`
   padding: 0 ${(props) => props.theme.spacing.space24};
 
   &:hover {
-    background-color: lightgrey;
+    background-color: ${(props) => props.theme.colours.sapphire};
+    color: ${(props) => props.theme.colours.white};
   }
 `;
 
