@@ -8,7 +8,9 @@ const ProductCardWrapper = styled.div`
   flex-direction: column;
   align-items: none;
   gap: ${(props) => props.theme.spacing.space24};
-  box-shadow: rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem;
+  box-shadow:
+    rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem,
+    rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem;
 
   @media (min-width: ${(props) => props.theme.breakpoints.md}) {
     flex-direction: ${(props) => (props.display === "grid" ? "column" : "row")};
@@ -107,8 +109,8 @@ const Textbox = styled.input`
   border: 0.0625rem solid ${(props) => props.theme.colours.grey400};
 `;
 
-const ProductCard = ({ id, imgUrl, name, description, price, page = null, display }) => {
-  const [quantity, setQuantity] = useState(0);
+const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page = null, display }) => {
+  const [selectedQuantity, setSelectedQuantity] = useState(quantity);
   const { addToCart, removeFromCart } = useCart();
 
   const handleQuantityChange = (e) => {
@@ -116,26 +118,26 @@ const ProductCard = ({ id, imgUrl, name, description, price, page = null, displa
     const numericValue = Number(value);
 
     if (numericValue < 0) {
-      setQuantity(0);
+      setSelectedQuantity(0);
       return;
     }
 
     if (numericValue > 100) {
-      setQuantity(100);
+      setSelectedQuantity(100);
       return;
     }
 
-    setQuantity(value === "" ? "" : numericValue);
+    setSelectedQuantity(value === "" ? "" : numericValue);
   };
 
   const handleDecreaseQuantity = () => {
-    if (quantity <= 0) return;
-    setQuantity(quantity - 1);
+    if (selectedQuantity <= 0) return;
+    setSelectedQuantity(selectedQuantity - 1);
   };
 
   const handleIncreaseQuantity = () => {
-    if (quantity >= 100) return;
-    setQuantity(quantity + 1);
+    if (selectedQuantity >= 100) return;
+    setSelectedQuantity(selectedQuantity + 1);
   };
 
   if (typeof id !== "number" || !imgUrl || !name || !description || typeof price !== "number") return null;
@@ -157,7 +159,7 @@ const ProductCard = ({ id, imgUrl, name, description, price, page = null, displa
               <label id={`${id}-quantity`} hidden>
                 Quantity for {name}
               </label>
-              <Textbox type="number" value={quantity} aria-labelledby={`${id}-quantity`} onChange={handleQuantityChange} />
+              <Textbox type="number" value={selectedQuantity} aria-labelledby={`${id}-quantity`} onChange={handleQuantityChange} />
               <Button type="button" aria-label={`increase quantity for ${name}`} onClick={handleIncreaseQuantity}>
                 <Plus />
               </Button>
@@ -170,7 +172,7 @@ const ProductCard = ({ id, imgUrl, name, description, price, page = null, displa
               <Button
                 type="button"
                 aria-label={`add ${name} to cart`}
-                onClick={() => addToCart({ id: id, image: imgUrl, title: name, description: description, price: price })}>
+                onClick={() => addToCart({ id: id, image: imgUrl, title: name, description: description, price: price, quantity: selectedQuantity })}>
                 <ShoppingCart size={20} /> Add to Cart
               </Button>
             )}

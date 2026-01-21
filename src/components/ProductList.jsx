@@ -40,6 +40,7 @@ const ProductList = ({ title, products, page, display }) => {
                   name={product.title}
                   description={product.description}
                   price={product.price}
+                  quantity={product.quantity}
                   page={page}
                   display={display}
                 />
