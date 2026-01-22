@@ -19,7 +19,7 @@ const Home = () => {
           {products && (
             <main>
               <HeroBanner title="One Store, Infinite Options" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
-              <ProductList title="Featured Products" products={products} display="grid" />
+              <ProductList title="Featured Products" products={products.slice(0, 5)} display="grid" />
               {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
             </main>
           )}
