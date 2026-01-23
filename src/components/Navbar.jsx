@@ -214,7 +214,7 @@ const Navbar = () => {
 
       {window.innerWidth < 992 ? (
         <HamburgerWrapper>
-          <HamburgerButton onClick={handleNavToggle}>
+          <HamburgerButton onClick={handleNavToggle} aria-label="navigation menu">
             <Menu strokeWidth={3} />
           </HamburgerButton>
         </HamburgerWrapper>
