@@ -31,7 +31,7 @@ describe("Cart component", () => {
   it("renders correct list of products added to cart", async () => {
     render(renderWithProviders(<Cart />, { cart: mockCart }));
 
-    const list = await screen.findByRole("list", { name: /items/i });
+    const list = await screen.findByTestId("cart-list");
     const products = within(list).getAllByRole("listitem");
 
     expect(products).toHaveLength(3);
@@ -44,6 +44,6 @@ describe("Cart component", () => {
       removeFromCart: vi.fn(),
     };
     render(renderWithProviders(<Cart />, { cart: mockCart }));
-    expect(screen.getByText(/no products/i)).toBeInTheDocument();
+    expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument();
   });
 });
