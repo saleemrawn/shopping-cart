@@ -30,7 +30,7 @@ const ProductList = ({ title, products, page, display }) => {
     <>
       {title && <StyledTitle level={2}>{title}</StyledTitle>}
       {products.length > 0 && (
-        <StyledProductList aria-labelledby="product-list-heading" display={display}>
+        <StyledProductList aria-labelledby="product-list-heading" display={display} data-testid="cart-list">
           {products.map((product) => {
             return (
               <li key={product.id}>
