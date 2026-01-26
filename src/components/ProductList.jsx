@@ -28,9 +28,13 @@ const ProductsMessage = styled.div`
 const ProductList = ({ title, products, page, display }) => {
   return (
     <>
-      {title && <StyledTitle level={2}>{title}</StyledTitle>}
+      {title && (
+        <StyledTitle level={2} id="products-list-title">
+          {title}
+        </StyledTitle>
+      )}
       {products.length > 0 && (
-        <StyledProductList aria-labelledby="product-list-heading" display={display} data-testid="cart-list">
+        <StyledProductList aria-labelledby="products-list-title" display={display}>
           {products.map((product) => {
             return (
               <li key={product.id}>

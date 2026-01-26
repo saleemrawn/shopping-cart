@@ -57,7 +57,7 @@ describe("Shop component", () => {
 
     render(renderWithProviders(<Shop />, { products: mockProducts }));
 
-    const list = await screen.findByTestId("cart-list");
+    const list = await screen.findByRole("list", { name: "Trending" });
     const products = within(list).getAllByRole("listitem");
 
     expect(products).toHaveLength(5);

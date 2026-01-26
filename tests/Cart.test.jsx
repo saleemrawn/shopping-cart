@@ -31,7 +31,7 @@ describe("Cart component", () => {
   it("renders correct list of products added to cart", async () => {
     render(renderWithProviders(<Cart />, { cart: mockCart }));
 
-    const list = await screen.findByTestId("cart-list");
+    const list = await screen.findByRole("list", { name: "Items" });
     const products = within(list).getAllByRole("listitem");
 
     expect(products).toHaveLength(3);
