@@ -62,12 +62,12 @@ describe("Navbar component", () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 })).toBeInTheDocument();
 
-    const link = screen.getByRole("link", { name: "Shop" });
+    const link = await screen.findByRole("link", { name: "Shop" });
     await user.click(link);
 
-    expect(await screen.findByRole("heading", { name: "Shop", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "Shop", level: 1 })).toBeInTheDocument();
   });
 
   it("navigate to cart page", async () => {
@@ -79,12 +79,12 @@ describe("Navbar component", () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 })).toBeInTheDocument();
 
     const link = screen.getByRole("link", { name: "Cart 0" });
     await user.click(link);
 
-    expect(await screen.findByRole("heading", { name: "Cart", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "Cart", level: 1 })).toBeInTheDocument();
   });
 
   it("navigate back to home page", async () => {
@@ -96,12 +96,12 @@ describe("Navbar component", () => {
 
     render(<RouterProvider router={router} />);
 
-    expect(await screen.findByRole("heading", { name: "Cart", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "Cart", level: 1 })).toBeInTheDocument();
 
     const link = screen.getByRole("link", { name: "Home" });
     await user.click(link);
 
-    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 }));
+    expect(await screen.findByRole("heading", { name: "One Store, Infinite Options", level: 1 })).toBeInTheDocument();
   });
 
   it("displays error page for bad route", () => {
