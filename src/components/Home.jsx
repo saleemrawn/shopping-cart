@@ -12,19 +12,21 @@ const Home = () => {
 
   return (
     <>
-      <Loader isLoading={loading} />
-      {!loading && (
-        <>
-          <Navbar />
-          {products && (
-            <main>
-              <HeroBanner title="One Store, Infinite Options" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
-              <ProductList title="Featured Products" products={products.slice(0, 5)} display="grid" />
-              {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
-            </main>
-          )}
-        </>
-      )}
+      <Navbar />
+      <main>
+        <HeroBanner title="One Store, Infinite Options" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+        <Loader isLoading={loading} />
+        {!loading && (
+          <>
+            {products && (
+              <>
+                <ProductList title="Featured Products" products={products.slice(0, 5)} display="grid" />
+                {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
+              </>
+            )}
+          </>
+        )}
+      </main>
     </>
   );
 };

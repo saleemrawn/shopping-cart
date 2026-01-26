@@ -12,19 +12,21 @@ const Shop = () => {
 
   return (
     <>
-      <Loader isLoading={loading} />
-      {!loading && (
-        <>
-          <Navbar />
-          {products && (
-            <main>
-              <HeroBanner title="Shop" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
-              <ProductList title="Trending" products={products} display="grid" />
-              {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
-            </main>
-          )}
-        </>
-      )}
+      <Navbar />
+      <main>
+        <HeroBanner title="Shop" images={{ desktop: DesktopBanner, mobile: MobileBanner }} />
+        <Loader isLoading={loading} />
+        {!loading && (
+          <>
+            {products && (
+              <>
+                <ProductList title="Trending" products={products} display="grid" />
+                {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
+              </>
+            )}
+          </>
+        )}
+      </main>
     </>
   );
 };
