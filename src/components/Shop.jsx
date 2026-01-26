@@ -18,10 +18,10 @@ const Shop = () => {
         <Loader isLoading={loading} />
         {!loading && (
           <>
+            {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
             {products && (
               <>
                 <ProductList title="Trending" products={products} display="grid" />
-                {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
               </>
             )}
           </>

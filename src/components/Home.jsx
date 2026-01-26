@@ -18,10 +18,10 @@ const Home = () => {
         <Loader isLoading={loading} />
         {!loading && (
           <>
+            {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
             {products && (
               <>
                 <ProductList title="Featured Products" products={products.slice(0, 5)} display="grid" />
-                {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
               </>
             )}
           </>
