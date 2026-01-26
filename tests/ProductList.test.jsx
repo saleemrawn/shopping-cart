@@ -30,14 +30,12 @@ describe("ProductList", () => {
   });
 
   it("renders empty state when no products", () => {
-    render(<ProductList products={[]} />);
-    expect(screen.getByText(/no products/i)).toBeInTheDocument();
+    render(renderWithProviders(<ProductList products={[]} />));
+    expect(screen.getByText(/no products available/i)).toBeInTheDocument();
   });
 
   it("display correct product details", async () => {
-    const mockProduct = [
-      { id: 0, image: "product.jpg", title: "Test Product", description: "Lorem Ipsum", price: 4.99 },
-    ];
+    const mockProduct = [{ id: 0, image: "product.jpg", title: "Test Product", description: "Lorem Ipsum", price: 4.99 }];
 
     render(renderWithProviders(<ProductList products={mockProduct} />));
 
