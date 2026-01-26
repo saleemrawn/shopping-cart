@@ -37,15 +37,15 @@ describe("ProductCard", () => {
   it("renders correct product names", () => {
     render(renderWithProviders(mockProductCards));
 
-    expect(screen.getByRole("heading", { name: /airfryer/i, level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /saucepans/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /airfryer/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /saucepans/i, level: 3 })).toBeInTheDocument();
   });
 
   it("renders correct product prices", () => {
     render(renderWithProviders(mockProductCards));
 
-    expect(screen.getByRole("heading", { name: /airfryer/i, level: 2 })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: /saucepans/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByText("£4.99")).toBeInTheDocument();
+    expect(screen.getByText("£9.99")).toBeInTheDocument();
   });
 
   it("renders quantity input textbox", () => {
@@ -105,8 +105,8 @@ describe("ProductCard", () => {
             price={mockProducts[1].price}
             page="cart"
           />
-        </>
-      )
+        </>,
+      ),
     );
 
     expect(screen.getByRole("button", { name: /remove airfryer from cart/i })).toBeInTheDocument();
@@ -132,8 +132,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const input = screen.getByRole("spinbutton");
@@ -154,8 +154,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const input = screen.getByRole("spinbutton");
@@ -176,8 +176,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const input = screen.getByRole("spinbutton");
@@ -199,8 +199,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const input = screen.getByRole("spinbutton");
@@ -222,8 +222,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const button = screen.getByRole("button", { name: /increase quantity for airfryer/i });
@@ -246,8 +246,8 @@ describe("ProductCard", () => {
           description={mockProducts[0].description}
           price={mockProducts[0].price}
           page="cart"
-        />
-      )
+        />,
+      ),
     );
 
     const button = screen.getByRole("button", { name: /decrease quantity for airfryer/i });
