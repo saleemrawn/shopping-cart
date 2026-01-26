@@ -23,7 +23,7 @@ describe("ProductList", () => {
 
     render(renderWithProviders(<ProductList title="Featured Products" products={mockProducts} />));
 
-    const list = screen.getByRole("list", { name: "Featured Products" });
+    const list = screen.getByTestId("cart-list");
     const products = within(list).getAllByRole("listitem");
 
     expect(products).toHaveLength(2);
