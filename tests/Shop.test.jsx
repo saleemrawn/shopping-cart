@@ -14,40 +14,32 @@ describe("Shop component", () => {
     expect(await screen.findByRole("heading", { name: /shop/i, level: 1 })).toBeInTheDocument();
   });
 
-  it("displays loading message when products are loading", async () => {
-    vi.resetModules();
+  it("displays loader when products are loading", async () => {
+    render(
+      renderWithProviders(<Shop />, {
+        products: {
+          products: [],
+          loading: true,
+          error: null,
+        },
+      }),
+    );
 
-    vi.doMock("../src/fetch", () => ({
-      default: vi.fn(() => ({
-        products: [],
-        loading: true,
-        error: null,
-      })),
-    }));
-
-    const { default: Shop } = await import("../src/components/Shop");
-
-    render(renderWithProviders(<Shop />));
-
-    expect(screen.getByText(/loading.../i)).toBeInTheDocument();
+    expect(screen.getByTestId("loader")).toBeInTheDocument();
   });
 
   it("displays network error message when issue fetching products", async () => {
-    vi.resetModules();
+    render(
+      renderWithProviders(<Shop />, {
+        products: {
+          products: [],
+          loading: false,
+          error: true,
+        },
+      }),
+    );
 
-    vi.doMock("../src/fetch", () => ({
-      default: vi.fn(() => ({
-        products: [],
-        loading: false,
-        error: true,
-      })),
-    }));
-
-    const { default: Shop } = await import("../src/components/Shop");
-
-    render(renderWithProviders(<Shop />));
-
-    expect(screen.getByText(/a network error was encountered./i)).toBeInTheDocument();
+    expect(screen.getByText(/a network error was encountered/i)).toBeInTheDocument();
   });
 
   it("renders correct list of products", async () => {
