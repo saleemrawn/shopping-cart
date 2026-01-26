@@ -39,6 +39,6 @@ describe("ProductList", () => {
 
     render(renderWithProviders(<ProductList products={mockProduct} />));
 
-    expect(screen.getByRole("heading", { name: /test product/i, level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /test product/i, level: 3 })).toBeInTheDocument();
   });
 });
