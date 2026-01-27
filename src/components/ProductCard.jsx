@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useCart } from "../CartProvider";
+import { useCart } from "../providers/CartProvider";
 import { ShoppingCart, Plus, Minus, CircleCheckBig } from "lucide-react";
 import styled from "styled-components";
 

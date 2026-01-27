@@ -3,9 +3,9 @@ import theme from "../theme";
 import GlobalStyle from "./GlobalStyles";
 import { useState } from "react";
 import { Outlet } from "react-router";
-import { CartProvider } from "../CartProvider";
+import { CartProvider } from "../providers/CartProvider";
 import { ThemeProvider } from "styled-components";
-import { ProductsProvider } from "./ProductProvider";
+import { ProductsProvider } from "../providers/ProductsProvider";
 
 const App = () => {
   const { products, error, loading } = useFetchProducts();

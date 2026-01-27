@@ -6,7 +6,7 @@ import MobileBanner from "../assets/shop-banner-mobile.jpg";
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
 import styled from "styled-components";
-import { useProducts } from "./ProductProvider";
+import { useProducts } from "../providers/ProductsProvider";
 
 const ProductsWrapper = styled.div`
   position: relative;

@@ -1,4 +1,4 @@
-import { useCart } from "../CartProvider";
+import { useCart } from "../providers/CartProvider";
 import Navbar from "./Navbar";
 import HeroBanner from "./HeroBanner";
 import ProductList from "./ProductList";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router";
 import { Menu, CircleX } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useCart } from "../CartProvider";
+import { useCart } from "../providers/CartProvider";
 
 const StyledNavbar = styled.nav`
   position: relative;
