@@ -55,7 +55,7 @@ const Loader = ({ isLoading }) => {
 
   return (
     <CSSTransition in={isLoading} nodeRef={ref} classNames="fade-out" timeout={800} unmountOnExit>
-      <LoaderWrapper ref={ref}>
+      <LoaderWrapper ref={ref} data-testid="loader">
         <StyledLoader />
       </LoaderWrapper>
     </CSSTransition>
