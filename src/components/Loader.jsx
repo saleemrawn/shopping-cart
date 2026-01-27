@@ -9,6 +9,10 @@ const LoaderWrapper = styled.div`
   height: 50vh;
   width: 100%;
   background-color: ${(props) => props.theme.colours.white};
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
 
   &.fade-out-exit {
     opacity: 1;
