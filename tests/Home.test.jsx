@@ -20,23 +20,23 @@ describe("Home component", () => {
     };
   });
 
-  it("navbar rendered", async () => {
+  it("navbar rendered", () => {
     render(renderWithProviders(<Home />, { products: mockProducts }));
-    expect(await screen.findByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
 
-  it("hero banner rendered", async () => {
+  it("hero banner rendered", () => {
     render(renderWithProviders(<Home />, { products: mockProducts }));
-    expect(await screen.findByTestId("hero-banner")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-banner")).toBeInTheDocument();
   });
 
-  it("featured products rendered", async () => {
+  it("featured products rendered", () => {
     render(renderWithProviders(<Home />, { products: mockProducts }));
 
-    const list = await screen.findByRole("list", { name: "Featured Products" });
+    const list = screen.getByRole("list", { name: "Featured Products" });
     const products = within(list).getAllByRole("listitem");
 
-    expect(await screen.findByRole("heading", { name: "Featured Products", level: 2 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Featured Products", level: 2 })).toBeInTheDocument();
     expect(products).toHaveLength(5);
   });
 });
