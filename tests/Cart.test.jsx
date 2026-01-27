@@ -28,16 +28,16 @@ describe("Cart component", () => {
     expect(screen.getByRole("heading", { name: /cart/i, level: 1 })).toBeInTheDocument();
   });
 
-  it("renders correct list of products added to cart", async () => {
+  it("renders correct list of products added to cart", () => {
     render(renderWithProviders(<Cart />, { cart: mockCart }));
 
-    const list = await screen.findByRole("list", { name: "Items" });
+    const list = screen.getByRole("list", { name: "Items" });
     const products = within(list).getAllByRole("listitem");
 
     expect(products).toHaveLength(3);
   });
 
-  it("displays message when no products added to cart", async () => {
+  it("displays message when no products added to cart", () => {
     const mockCart = {
       cartItems: [],
       addToCart: vi.fn(),
