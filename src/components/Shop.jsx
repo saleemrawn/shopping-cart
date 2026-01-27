@@ -19,7 +19,7 @@ const Shop = () => {
         {!loading && (
           <>
             {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
-            {products && (
+            {products && !error && (
               <>
                 <ProductList title="Trending" products={products} display="grid" />
               </>

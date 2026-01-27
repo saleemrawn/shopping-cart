@@ -19,7 +19,7 @@ const Home = () => {
         {!loading && (
           <>
             {error && <ErrorMessage>A network error was encountered</ErrorMessage>}
-            {products && (
+            {products && !error && (
               <>
                 <ProductList title="Featured Products" products={products.slice(0, 5)} display="grid" />
               </>
