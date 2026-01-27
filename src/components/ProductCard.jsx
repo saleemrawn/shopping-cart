@@ -91,6 +91,7 @@ const Button = styled.button`
   gap: ${(props) => props.theme.spacing.space8};
   background-color: ${(props) => props.theme.colours.lavender};
   padding: ${(props) => props.theme.spacing.space6} ${(props) => props.theme.spacing.space12};
+  font-family: inherit;
   font-weight: ${(props) => props.theme.fonts.weights.bold};
   font-size: inherit;
   border: none;
@@ -112,6 +113,7 @@ const AddedToCartButton = styled(Button)`
 `;
 
 const Textbox = styled.input`
+  font-family: inherit;
   font-size: inherit;
   text-align: center;
   border-radius: 6.25rem;
