@@ -21,7 +21,7 @@ const StyledTitle = styled(Title)`
 `;
 
 const ProductsMessage = styled.div`
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   text-align: center;
 `;
 

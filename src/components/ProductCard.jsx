@@ -56,7 +56,7 @@ const ProductInfo = styled.div`
 
 const ProductName = styled.h3`
   font-size: 1rem;
-  font-weight: ${(props) => props.theme.weights.regular};
+  font-weight: ${(props) => props.theme.fonts.weights.regular};
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -65,7 +65,7 @@ const ProductName = styled.h3`
 `;
 
 const ProductPrice = styled.div`
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   font-size: ${(props) => props.theme.headings.desktop.h6};
 `;
 
@@ -91,7 +91,7 @@ const Button = styled.button`
   gap: ${(props) => props.theme.spacing.space8};
   background-color: ${(props) => props.theme.colours.lavender};
   padding: ${(props) => props.theme.spacing.space6} ${(props) => props.theme.spacing.space12};
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   font-size: inherit;
   border: none;
   border-radius: 6.25rem;

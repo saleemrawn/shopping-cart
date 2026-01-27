@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledTitle = styled.h1`
-  font-weight: ${(props) => props.theme.weights.black};
+  font-weight: ${(props) => props.theme.fonts.weights.black};
   font-size: ${(props) => props.theme.headings[props.as]};
 `;
 

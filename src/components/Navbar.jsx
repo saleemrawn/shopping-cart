@@ -26,8 +26,8 @@ const Logo = styled.div`
   align-content: center;
   font-size: 2rem;
   text-transform: lowercase;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-weight: ${(props) => props.theme.weights.black};
+  font-family: ${(props) => props.theme.fonts.family};
+  font-weight: ${(props) => props.theme.fonts.weights.black};
 `;
 
 const NavLinksList = styled.ul`
@@ -79,8 +79,8 @@ const StyledLogoLink = styled(Link)`
   height: inherit;
   display: flex;
   align-items: center;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-family: ${(props) => props.theme.fonts.family};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   text-decoration: none;
 
   &:hover {
@@ -94,8 +94,8 @@ const StyledNavLink = styled(Link)`
   align-items: center;
   gap: ${(props) => props.theme.spacing.space16};
   text-decoration: none;
-  font-family: ${(props) => props.theme.fonts.main};
-  font-weight: ${(props) => props.theme.weights.black};
+  font-family: ${(props) => props.theme.fonts.family};
+  font-weight: ${(props) => props.theme.fonts.weights.black};
   font-size: ${(props) => props.theme.headings.mobile.hero};
   padding: 0 ${(props) => props.theme.spacing.space40};
   color: ${(props) => props.theme.colours.white};
@@ -145,7 +145,7 @@ const CloseNavButton = styled.button`
   border: none;
   background-color: transparent;
   font-family: inherit;
-  font-weight: ${(props) => props.theme.weights.black};
+  font-weight: ${(props) => props.theme.fonts.weights.black};
   font-size: ${(props) => props.theme.headings.mobile.hero};
   color: ${(props) => props.theme.colours.white};
   padding-left: ${(props) => props.theme.spacing.space40};
@@ -162,7 +162,7 @@ const CartQuantity = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   background-color: ${(props) => props.theme.colours.white};
   color: ${(props) => props.theme.colours.sapphire};
   border-radius: 6.25rem;

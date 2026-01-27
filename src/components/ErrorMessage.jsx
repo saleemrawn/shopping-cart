@@ -5,7 +5,7 @@ const Message = styled.div`
   justify-content: center;
   width: 100%;
   font-size: ${(props) => props.theme.headings.mobile.h5};
-  font-weight: ${(props) => props.theme.weights.bold};
+  font-weight: ${(props) => props.theme.fonts.weights.bold};
   margin-top: ${(props) => props.theme.spacing.space40};
 `;
 

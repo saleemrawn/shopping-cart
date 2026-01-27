@@ -1,15 +1,14 @@
 const theme = {
   fonts: {
-    main: `Inter, sans-serif`,
-  },
-
-  weights: {
-    light: 300,
-    regular: 400,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900,
+    family: `Inter, sans-serif`,
+    weights: {
+      light: 300,
+      regular: 400,
+      semibold: 600,
+      bold: 700,
+      extrabold: 800,
+      black: 900,
+    },
   },
 
   headings: {
