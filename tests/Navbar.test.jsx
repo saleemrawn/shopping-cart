@@ -36,9 +36,9 @@ describe("Navbar component", () => {
   it("cart link & cart quantity rendered in navbar", () => {
     mockCart = {
       cartItems: [
-        { id: 0, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
-        { id: 1, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
-        { id: 2, imgUrl: "product.jpg", name: "Product", description: "Lorem ipsum", price: 4.99 },
+        { id: 0, image: "product.jpg", title: "Product", description: "Lorem ipsum", price: 4.99 },
+        { id: 1, image: "product.jpg", title: "Product", description: "Lorem ipsum", price: 4.99 },
+        { id: 2, image: "product.jpg", title: "Product", description: "Lorem ipsum", price: 4.99 },
       ],
       addToCart: vi.fn(),
       removeFromCart: vi.fn(),
