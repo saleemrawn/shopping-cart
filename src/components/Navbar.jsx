@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router";
 import { Menu, CircleX } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useCart } from "../providers/CartProvider";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "./App";
 
 const StyledNavbar = styled.nav`
   position: relative;
@@ -179,7 +179,7 @@ const CartQuantity = styled.div`
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(window.innerWidth >= 992);
   const [browserWidth, setBrowserWidth] = useState(window.innerWidth);
-  const { cartItems } = useCart();
+  const { cartItems } = useContext(CartContext);
 
   useEffect(() => {
     window.addEventListener("resize", handleBrowserResize);

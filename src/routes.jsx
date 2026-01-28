@@ -1,4 +1,4 @@
-import App from "./components/App.jsx";
+import { App } from "./components/App.jsx";
 import Home from "./components/Home.jsx";
 import Shop from "./components/Shop.jsx";
 import Cart from "./components/Cart.jsx";

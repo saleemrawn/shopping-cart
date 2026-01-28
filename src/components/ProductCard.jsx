@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useCart } from "../providers/CartProvider";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "./App";
 import { ShoppingCart, Plus, Minus, CircleCheckBig } from "lucide-react";
 import styled from "styled-components";
 
@@ -123,7 +123,7 @@ const Textbox = styled.input`
 const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page = null, display }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(quantity);
   const [addedToCart, setAddedToCart] = useState(false);
-  const { cartItems, addToCart, removeFromCart } = useCart();
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
   useEffect(() => {
     const inCart = cartItems.some((item) => item.id === id);

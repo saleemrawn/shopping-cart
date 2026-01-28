@@ -6,14 +6,15 @@ import MobileBanner from "../assets/home-banner-mobile.jpg";
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
 import styled from "styled-components";
-import { useProducts } from "../providers/ProductsProvider";
+import { useContext } from "react";
+import { ProductsContext } from "./App";
 
 const ProductsWrapper = styled.div`
   position: relative;
 `;
 
 const Home = () => {
-  const { products, error, loading } = useProducts();
+  const { products, error, loading } = useContext(ProductsContext);
 
   return (
     <>

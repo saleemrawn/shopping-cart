@@ -1,13 +1,14 @@
 import useFetchProducts from "../fetch";
 import theme from "../theme";
 import GlobalStyle from "./GlobalStyles";
-import { useState } from "react";
-import { Outlet } from "react-router";
-import { CartProvider } from "../providers/CartProvider";
 import { ThemeProvider } from "styled-components";
-import { ProductsProvider } from "../providers/ProductsProvider";
+import { createContext, useState } from "react";
+import { Outlet } from "react-router";
 
-const App = () => {
+export const ProductsContext = createContext({ products: [], error: false, loading: false });
+export const CartContext = createContext({ cartItems: [], addToCart: () => {}, removeFromCart: () => {} });
+
+export const App = () => {
   const { products, error, loading } = useFetchProducts();
   const [cartItems, setCartItems] = useState([]);
 
@@ -22,15 +23,13 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <ProductsProvider value={{ products, error, loading }}>
-        <CartProvider value={{ cartItems, addToCart, removeFromCart }}>
+      <ProductsContext value={{ products, error, loading }}>
+        <CartContext value={{ cartItems, addToCart, removeFromCart }}>
           <ThemeProvider theme={theme}>
             <Outlet />
           </ThemeProvider>
-        </CartProvider>
-      </ProductsProvider>
+        </CartContext>
+      </ProductsContext>
     </>
   );
 };
-
-export default App;
