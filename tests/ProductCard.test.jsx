@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import ProductCard from "../src/components/ProductCard";
 import userEvent from "@testing-library/user-event";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 
 describe("ProductCard", () => {
   let mockProducts;
@@ -35,35 +35,35 @@ describe("ProductCard", () => {
   });
 
   it("renders correct product names", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("heading", { name: /airfryer/i, level: 3 })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /saucepans/i, level: 3 })).toBeInTheDocument();
   });
 
   it("renders correct product prices", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByText("£4.99")).toBeInTheDocument();
     expect(screen.getByText("£9.99")).toBeInTheDocument();
   });
 
   it("renders quantity input textbox", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
   });
 
   it("renders correct product images", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("img", { name: /airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /saucepans/i })).toBeInTheDocument();
   });
 
   it("renders increase/decrease quantity buttons", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("button", { name: /increase quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /decrease quantity for airfryer/i })).toBeInTheDocument();
@@ -72,14 +72,14 @@ describe("ProductCard", () => {
   });
 
   it("renders quantity input textbox", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
   });
 
   it("renders add to cart button", () => {
-    render(renderWithProviders(mockProductCards));
+    render(wrapWithProviders(mockProductCards));
 
     expect(screen.getByRole("button", { name: /add airfryer to cart/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /add saucepans to cart/i })).toBeInTheDocument();
@@ -87,7 +87,7 @@ describe("ProductCard", () => {
 
   it("renders remove button if page is cart", () => {
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <>
           <ProductCard
             id={mockProducts[0].id}
@@ -114,7 +114,7 @@ describe("ProductCard", () => {
   });
 
   it("does not render product card if props is missing", () => {
-    render(renderWithProviders(<ProductCard id={0} imgUrl={null} name={null} description={null} price={null} />));
+    render(wrapWithProviders(<ProductCard id={0} imgUrl={null} name={null} description={null} price={null} />));
 
     expect(screen.queryByRole("heading", { name: /airfryer/i, level: 2 })).not.toBeInTheDocument();
     expect(screen.queryByRole("img", { name: /airfryer/i })).not.toBeInTheDocument();
@@ -124,7 +124,7 @@ describe("ProductCard", () => {
   it("type 10 into quantity input field", async () => {
     const user = userEvent.setup();
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}
@@ -146,7 +146,7 @@ describe("ProductCard", () => {
     const user = userEvent.setup();
 
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}
@@ -168,7 +168,7 @@ describe("ProductCard", () => {
     const user = userEvent.setup();
 
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}
@@ -191,7 +191,7 @@ describe("ProductCard", () => {
     const user = userEvent.setup();
 
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}
@@ -214,7 +214,7 @@ describe("ProductCard", () => {
     const user = userEvent.setup();
 
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}
@@ -238,7 +238,7 @@ describe("ProductCard", () => {
     const user = userEvent.setup();
 
     render(
-      renderWithProviders(
+      wrapWithProviders(
         <ProductCard
           id={mockProducts[0].id}
           imgUrl={mockProducts[0].imgUrl}

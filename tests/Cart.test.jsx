@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, within } from "@testing-library/react";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 import Cart from "../src/components/Cart";
 
 describe("Cart component", () => {
@@ -19,17 +19,17 @@ describe("Cart component", () => {
   });
 
   it("navbar rendered", () => {
-    render(renderWithProviders(<Cart />, { cart: mockCart }));
+    render(wrapWithProviders(<Cart />, { cart: mockCart }));
     expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
 
   it("renders correct page heading", () => {
-    render(renderWithProviders(<Cart />, { cart: mockCart }));
+    render(wrapWithProviders(<Cart />, { cart: mockCart }));
     expect(screen.getByRole("heading", { name: /cart/i, level: 1 })).toBeInTheDocument();
   });
 
   it("renders correct list of products added to cart", () => {
-    render(renderWithProviders(<Cart />, { cart: mockCart }));
+    render(wrapWithProviders(<Cart />, { cart: mockCart }));
 
     const list = screen.getByRole("list", { name: "Items" });
     const products = within(list).getAllByRole("listitem");
@@ -43,7 +43,7 @@ describe("Cart component", () => {
       addToCart: vi.fn(),
       removeFromCart: vi.fn(),
     };
-    render(renderWithProviders(<Cart />, { cart: mockCart }));
+    render(wrapWithProviders(<Cart />, { cart: mockCart }));
     expect(screen.getByText(/your cart is empty/i)).toBeInTheDocument();
   });
 });

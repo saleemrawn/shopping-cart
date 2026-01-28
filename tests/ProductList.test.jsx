@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, within } from "@testing-library/react";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 import ProductList from "../src/components/ProductList";
 
 describe("ProductList", () => {
@@ -17,12 +17,12 @@ describe("ProductList", () => {
   });
 
   it("renders correct title heading", () => {
-    render(renderWithProviders(<ProductList title="Cart" products={mockProducts} />));
+    render(wrapWithProviders(<ProductList title="Cart" products={mockProducts} />));
     expect(screen.getByRole("heading", { name: "Cart", level: 2 })).toBeInTheDocument();
   });
 
   it("renders products with correct structure", () => {
-    render(renderWithProviders(<ProductList title="Featured Products" products={mockProducts} />));
+    render(wrapWithProviders(<ProductList title="Featured Products" products={mockProducts} />));
 
     const list = screen.getByRole("list", { name: "Featured Products" });
     const products = within(list).getAllByRole("listitem");
@@ -31,13 +31,13 @@ describe("ProductList", () => {
   });
 
   it("renders empty state when no products", () => {
-    render(renderWithProviders(<ProductList products={[]} />));
+    render(wrapWithProviders(<ProductList products={[]} />));
     expect(screen.getByText(/no products available/i)).toBeInTheDocument();
   });
 
   it("display correct product details", () => {
     const mockProduct = [{ id: 0, image: "product.jpg", title: "Test Product", description: "Lorem Ipsum", price: 4.99 }];
-    render(renderWithProviders(<ProductList products={mockProduct} />));
+    render(wrapWithProviders(<ProductList products={mockProduct} />));
     expect(screen.getByRole("heading", { name: /test product/i, level: 3 })).toBeInTheDocument();
   });
 });

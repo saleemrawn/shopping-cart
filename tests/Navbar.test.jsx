@@ -4,7 +4,7 @@ import routes from "../src/routes";
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 import { act } from "react";
 
 describe("Navbar component", () => {
@@ -19,17 +19,17 @@ describe("Navbar component", () => {
   });
 
   it("logo rendered in navbar", () => {
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
     expect(screen.getByText(/multiproducts/i)).toBeInTheDocument();
   });
 
   it("home link rendered in navbar", () => {
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
     expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
   });
 
   it("shop link rendered in navbar", () => {
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
     expect(screen.getByRole("link", { name: "Shop" })).toBeInTheDocument();
   });
 
@@ -44,12 +44,12 @@ describe("Navbar component", () => {
       removeFromCart: vi.fn(),
     };
 
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
     expect(screen.getByRole("link", { name: "Cart 3" })).toBeInTheDocument();
   });
 
   it("cart quantity displays 3 items in navbar", () => {
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
     expect(screen.getByRole("link", { name: "Cart 0" })).toBeInTheDocument();
   });
 
@@ -118,7 +118,7 @@ describe("Navbar component", () => {
   });
 
   it("hamburger button renders in mobile navbar", async () => {
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
 
     await act(async () => {
       global.innerWidth = 375;
@@ -131,7 +131,7 @@ describe("Navbar component", () => {
   it("close button renders in mobile navbar", async () => {
     const user = userEvent.setup();
 
-    render(renderWithProviders(<Navbar />, { cart: mockCart }));
+    render(wrapWithProviders(<Navbar />, { cart: mockCart }));
 
     await act(async () => {
       global.innerWidth = 375;

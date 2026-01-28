@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, within } from "@testing-library/react";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 import Shop from "../src/components/Shop";
 
 describe("Shop component", () => {
@@ -21,18 +21,18 @@ describe("Shop component", () => {
   });
 
   it("navbar rendered", () => {
-    render(renderWithProviders(<Shop />, { products: mockProducts }));
+    render(wrapWithProviders(<Shop />, { products: mockProducts }));
     expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
 
   it("renders correct page heading", () => {
-    render(renderWithProviders(<Shop />, { products: mockProducts }));
+    render(wrapWithProviders(<Shop />, { products: mockProducts }));
     expect(screen.getByRole("heading", { name: /shop/i, level: 1 })).toBeInTheDocument();
   });
 
   it("displays loader when products are loading", async () => {
     render(
-      renderWithProviders(<Shop />, {
+      wrapWithProviders(<Shop />, {
         products: {
           products: [],
           loading: true,
@@ -46,7 +46,7 @@ describe("Shop component", () => {
 
   it("displays network error message when issue fetching products", async () => {
     render(
-      renderWithProviders(<Shop />, {
+      wrapWithProviders(<Shop />, {
         products: {
           products: [],
           loading: false,
@@ -59,7 +59,7 @@ describe("Shop component", () => {
   });
 
   it("renders correct list of products", () => {
-    render(renderWithProviders(<Shop />, { products: mockProducts }));
+    render(wrapWithProviders(<Shop />, { products: mockProducts }));
 
     const list = screen.getByRole("list", { name: "Trending" });
     const products = within(list).getAllByRole("listitem");

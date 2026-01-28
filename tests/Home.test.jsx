@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, within } from "@testing-library/react";
-import { renderWithProviders } from "./test-utils";
+import { wrapWithProviders } from "./test-utils";
 import Home from "../src/components/Home";
 
 describe("Home component", () => {
@@ -21,17 +21,17 @@ describe("Home component", () => {
   });
 
   it("navbar rendered", () => {
-    render(renderWithProviders(<Home />, { products: mockProducts }));
+    render(wrapWithProviders(<Home />, { products: mockProducts }));
     expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
 
   it("hero banner rendered", () => {
-    render(renderWithProviders(<Home />, { products: mockProducts }));
+    render(wrapWithProviders(<Home />, { products: mockProducts }));
     expect(screen.getByTestId("hero-banner")).toBeInTheDocument();
   });
 
   it("featured products rendered", () => {
-    render(renderWithProviders(<Home />, { products: mockProducts }));
+    render(wrapWithProviders(<Home />, { products: mockProducts }));
 
     const list = screen.getByRole("list", { name: "Featured Products" });
     const products = within(list).getAllByRole("listitem");
