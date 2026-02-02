@@ -6,6 +6,7 @@ const Button = styled.button`
   align-items: center;
   gap: ${(props) => props.theme.spacing.space8};
   background-color: ${(props) => props.theme.colours.lavender};
+  color: ${(props) => props.theme.colours.sapphire};
   padding: ${(props) => props.theme.spacing.space6} ${(props) => props.theme.spacing.space12};
   font-family: inherit;
   font-weight: ${(props) => props.theme.fonts.weights.bold};
@@ -15,7 +16,7 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${(props) => props.theme.colours.sapphire};
-    color: ${(props) => props.theme.colours.grey50};
+    color: ${(props) => props.theme.colours.white};
   }
 `;
 
