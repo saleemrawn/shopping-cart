@@ -237,7 +237,8 @@ const Navbar = () => {
                 to="/"
                 onClick={() => {
                   window.innerWidth < 992 && setNavOpen(false);
-                }}>
+                }}
+                viewTransition>
                 Home
               </StyledNavLink>
             </NavLinksListItem>
@@ -247,7 +248,8 @@ const Navbar = () => {
                 to="/shop"
                 onClick={() => {
                   window.innerWidth < 992 && setNavOpen(false);
-                }}>
+                }}
+                viewTransition>
                 Shop
               </StyledNavLink>
             </NavLinksListItem>
@@ -257,7 +259,8 @@ const Navbar = () => {
                 to="/cart"
                 onClick={() => {
                   window.innerWidth < 992 && setNavOpen(false);
-                }}>
+                }}
+                viewTransition>
                 Cart
                 <CartQuantity>{cartItems.length}</CartQuantity>
               </StyledNavLink>
