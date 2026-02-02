@@ -1,0 +1,492 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProductDetails > renders correctly 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="sc-dlnjPU kGhyJx"
+      >
+        <div
+          class="sc-hKFyIn kMKiha"
+        >
+          <a
+            class="sc-fujyUa hdXbMq"
+            data-discover="true"
+            href="/"
+          >
+            <div
+              class="sc-eCApGK dhrwOS"
+            >
+              Multiproducts
+            </div>
+          </a>
+        </div>
+        <div
+          class="sc-iCoHVD eXPNpw"
+        >
+          <ul
+            class="sc-jSFkmN geISZh"
+          >
+            <li
+              class="sc-gKAblk hNqDdl"
+            >
+              <a
+                class="sc-pNWxu zQpAz"
+                data-discover="true"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li
+              class="sc-gKAblk hNqDdl"
+            >
+              <a
+                class="sc-pNWxu zQpAz"
+                data-discover="true"
+                href="/shop"
+              >
+                Shop
+              </a>
+            </li>
+            <li
+              class="sc-gKAblk hNqDdl"
+            >
+              <a
+                class="sc-pNWxu zQpAz"
+                data-discover="true"
+                href="/cart"
+              >
+                Cart
+                <div
+                  class="sc-crzoUm gSeOqN"
+                >
+                  0
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div
+        class="sc-bCwgkd hcpozz"
+      >
+        Free standard delivery on orders over £30
+      </div>
+      <main
+        class="sc-bqGHjI ePUwIs"
+      >
+        <div
+          class="sc-ksluoV cAEAQy"
+        >
+          <img
+            alt="Product One"
+            class="sc-hBMVcW dnXywh"
+            src="product_one.jpg"
+          />
+          <div
+            class="sc-fnVYJn geMTCU"
+          >
+            <h1
+              class="sc-fFSRdx dfXeUf"
+            >
+              Product One
+            </h1>
+            <div
+              class="sc-iemXMz bFODkv"
+            >
+              £
+              9.99
+            </div>
+            <p
+              class="sc-bkbjAk"
+            >
+              Product Once perfect for outdoor running conditions.
+            </p>
+            <div
+              class="sc-dIvqjm bGudoA"
+            >
+              <div
+                class="sc-hHEjAp jIPkAG"
+              >
+                <button
+                  aria-label="decrease quantity for Product One"
+                  class="sc-dlMBXc jSSLaJ"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-minus"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12h14"
+                    />
+                  </svg>
+                </button>
+                <label
+                  hidden=""
+                  id="0-quantity"
+                >
+                  Quantity for 
+                  Product One
+                </label>
+                <input
+                  aria-labelledby="0-quantity"
+                  class="sc-fKgIGe dAufzX"
+                  type="number"
+                  value="0"
+                />
+                <button
+                  aria-label="increase quantity for Product One"
+                  class="sc-dlMBXc jSSLaJ"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-plus"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12h14"
+                    />
+                    <path
+                      d="M12 5v14"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <button
+                aria-label="add Product One to cart"
+                class="sc-dlMBXc jSSLaJ"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-shopping-cart"
+                  fill="none"
+                  height="20"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="8"
+                    cy="21"
+                    r="1"
+                  />
+                  <circle
+                    cx="19"
+                    cy="21"
+                    r="1"
+                  />
+                  <path
+                    d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                  />
+                </svg>
+                 Add to Cart
+              </button>
+              <a
+                class="sc-iwaifM jfBvA-D"
+                data-discover="true"
+                href="/cart"
+              >
+                Go to cart
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="sc-dlnjPU kGhyJx"
+    >
+      <div
+        class="sc-hKFyIn kMKiha"
+      >
+        <a
+          class="sc-fujyUa hdXbMq"
+          data-discover="true"
+          href="/"
+        >
+          <div
+            class="sc-eCApGK dhrwOS"
+          >
+            Multiproducts
+          </div>
+        </a>
+      </div>
+      <div
+        class="sc-iCoHVD eXPNpw"
+      >
+        <ul
+          class="sc-jSFkmN geISZh"
+        >
+          <li
+            class="sc-gKAblk hNqDdl"
+          >
+            <a
+              class="sc-pNWxu zQpAz"
+              data-discover="true"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            class="sc-gKAblk hNqDdl"
+          >
+            <a
+              class="sc-pNWxu zQpAz"
+              data-discover="true"
+              href="/shop"
+            >
+              Shop
+            </a>
+          </li>
+          <li
+            class="sc-gKAblk hNqDdl"
+          >
+            <a
+              class="sc-pNWxu zQpAz"
+              data-discover="true"
+              href="/cart"
+            >
+              Cart
+              <div
+                class="sc-crzoUm gSeOqN"
+              >
+                0
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div
+      class="sc-bCwgkd hcpozz"
+    >
+      Free standard delivery on orders over £30
+    </div>
+    <main
+      class="sc-bqGHjI ePUwIs"
+    >
+      <div
+        class="sc-ksluoV cAEAQy"
+      >
+        <img
+          alt="Product One"
+          class="sc-hBMVcW dnXywh"
+          src="product_one.jpg"
+        />
+        <div
+          class="sc-fnVYJn geMTCU"
+        >
+          <h1
+            class="sc-fFSRdx dfXeUf"
+          >
+            Product One
+          </h1>
+          <div
+            class="sc-iemXMz bFODkv"
+          >
+            £
+            9.99
+          </div>
+          <p
+            class="sc-bkbjAk"
+          >
+            Product Once perfect for outdoor running conditions.
+          </p>
+          <div
+            class="sc-dIvqjm bGudoA"
+          >
+            <div
+              class="sc-hHEjAp jIPkAG"
+            >
+              <button
+                aria-label="decrease quantity for Product One"
+                class="sc-dlMBXc jSSLaJ"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-minus"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12h14"
+                  />
+                </svg>
+              </button>
+              <label
+                hidden=""
+                id="0-quantity"
+              >
+                Quantity for 
+                Product One
+              </label>
+              <input
+                aria-labelledby="0-quantity"
+                class="sc-fKgIGe dAufzX"
+                type="number"
+                value="0"
+              />
+              <button
+                aria-label="increase quantity for Product One"
+                class="sc-dlMBXc jSSLaJ"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="lucide lucide-plus"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 12h14"
+                  />
+                  <path
+                    d="M12 5v14"
+                  />
+                </svg>
+              </button>
+            </div>
+            <button
+              aria-label="add Product One to cart"
+              class="sc-dlMBXc jSSLaJ"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-shopping-cart"
+                fill="none"
+                height="20"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="8"
+                  cy="21"
+                  r="1"
+                />
+                <circle
+                  cx="19"
+                  cy="21"
+                  r="1"
+                />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+               Add to Cart
+            </button>
+            <a
+              class="sc-iwaifM jfBvA-D"
+              data-discover="true"
+              href="/cart"
+            >
+              Go to cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
