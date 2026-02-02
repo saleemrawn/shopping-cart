@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { ShoppingCart, Plus, Minus, CircleCheckBig } from "lucide-react";
 import { CartContext, ProductsContext } from "./App";
+import { formatPrice } from "../utils";
 import styled from "styled-components";
 import Loader from "./Loader";
 import Navbar from "./Navbar";
@@ -195,7 +196,7 @@ const ProductDetails = () => {
 
           <ProductInfo>
             <ProductName>{currentProduct.title}</ProductName>
-            <ProductPrice>£{currentProduct.price}</ProductPrice>
+            <ProductPrice>£{formatPrice(currentProduct.price)}</ProductPrice>
             <ProductDescription>{currentProduct.description}</ProductDescription>
             <ProductControls>
               <ProductQuantity>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./App";
 import { Plus, Minus } from "lucide-react";
 import { Link } from "react-router";
+import { formatPrice } from "../utils";
 import styled from "styled-components";
 
 const ProductCardWrapper = styled.div`
@@ -165,7 +166,7 @@ const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page 
           <ProductMainWrapper display={display}>
             <ProductInfo>
               <ProductName>{name}</ProductName>
-              <ProductPrice>£{price}</ProductPrice>
+              <ProductPrice>£{formatPrice(price)}</ProductPrice>
             </ProductInfo>
 
             <ProductCardControls>
@@ -209,7 +210,7 @@ const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page 
             <ProductMainWrapper display={display}>
               <ProductInfo>
                 <ProductName>{name}</ProductName>
-                <ProductPrice>£{price}</ProductPrice>
+                <ProductPrice>£{formatPrice(price)}</ProductPrice>
               </ProductInfo>
             </ProductMainWrapper>
           </ProductCardWrapper>
