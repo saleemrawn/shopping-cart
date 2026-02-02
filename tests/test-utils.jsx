@@ -11,9 +11,9 @@ export const wrapWithProviders = (
   return (
     <MemoryRouter>
       <ThemeProvider theme={theme}>
-        <ProductsContext value={products}>
-          <CartContext value={cart}>{ui}</CartContext>
-        </ProductsContext>
+        <ProductsContext.Provider value={products}>
+          <CartContext.Provider value={cart}>{ui}</CartContext.Provider>
+        </ProductsContext.Provider>
       </ThemeProvider>
     </MemoryRouter>
   );
