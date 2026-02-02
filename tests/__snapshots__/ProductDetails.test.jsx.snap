@@ -76,44 +76,44 @@ exports[`ProductDetails > renders correctly 1`] = `
         Free standard delivery on orders over £30
       </div>
       <main
-        class="sc-bqGHjI ePUwIs"
+        class="sc-ksluoV hoKYDz"
       >
         <div
-          class="sc-ksluoV cAEAQy"
+          class="sc-hBMVcW RTLYf"
         >
           <img
             alt="Product One"
-            class="sc-hBMVcW dnXywh"
+            class="sc-fnVYJn joOeSP"
             src="product_one.jpg"
           />
           <div
-            class="sc-fnVYJn geMTCU"
+            class="sc-fFSRdx gguCHC"
           >
             <h1
-              class="sc-fFSRdx dfXeUf"
+              class="sc-bkbjAk fUEUBV"
             >
               Product One
             </h1>
             <div
-              class="sc-iemXMz bFODkv"
+              class="sc-dIvqjm khXrUg"
             >
               £
               9.99
             </div>
             <p
-              class="sc-bkbjAk"
+              class="sc-iemXMz"
             >
               Product Once perfect for outdoor running conditions.
             </p>
             <div
-              class="sc-dIvqjm bGudoA"
+              class="sc-hHEjAp crWwkP"
             >
               <div
-                class="sc-hHEjAp jIPkAG"
+                class="sc-dlMBXc iolHhU"
               >
                 <button
                   aria-label="decrease quantity for Product One"
-                  class="sc-dlMBXc jSSLaJ"
+                  class="sc-bqGHjI cOMykO"
                   type="button"
                 >
                   <svg
@@ -149,7 +149,7 @@ exports[`ProductDetails > renders correctly 1`] = `
                 />
                 <button
                   aria-label="increase quantity for Product One"
-                  class="sc-dlMBXc jSSLaJ"
+                  class="sc-bqGHjI cOMykO"
                   type="button"
                 >
                   <svg
@@ -176,7 +176,7 @@ exports[`ProductDetails > renders correctly 1`] = `
               </div>
               <button
                 aria-label="add Product One to cart"
-                class="sc-dlMBXc jSSLaJ"
+                class="sc-bqGHjI cOMykO"
                 type="button"
               >
                 <svg
@@ -293,44 +293,44 @@ exports[`ProductDetails > renders correctly 1`] = `
       Free standard delivery on orders over £30
     </div>
     <main
-      class="sc-bqGHjI ePUwIs"
+      class="sc-ksluoV hoKYDz"
     >
       <div
-        class="sc-ksluoV cAEAQy"
+        class="sc-hBMVcW RTLYf"
       >
         <img
           alt="Product One"
-          class="sc-hBMVcW dnXywh"
+          class="sc-fnVYJn joOeSP"
           src="product_one.jpg"
         />
         <div
-          class="sc-fnVYJn geMTCU"
+          class="sc-fFSRdx gguCHC"
         >
           <h1
-            class="sc-fFSRdx dfXeUf"
+            class="sc-bkbjAk fUEUBV"
           >
             Product One
           </h1>
           <div
-            class="sc-iemXMz bFODkv"
+            class="sc-dIvqjm khXrUg"
           >
             £
             9.99
           </div>
           <p
-            class="sc-bkbjAk"
+            class="sc-iemXMz"
           >
             Product Once perfect for outdoor running conditions.
           </p>
           <div
-            class="sc-dIvqjm bGudoA"
+            class="sc-hHEjAp crWwkP"
           >
             <div
-              class="sc-hHEjAp jIPkAG"
+              class="sc-dlMBXc iolHhU"
             >
               <button
                 aria-label="decrease quantity for Product One"
-                class="sc-dlMBXc jSSLaJ"
+                class="sc-bqGHjI cOMykO"
                 type="button"
               >
                 <svg
@@ -366,7 +366,7 @@ exports[`ProductDetails > renders correctly 1`] = `
               />
               <button
                 aria-label="increase quantity for Product One"
-                class="sc-dlMBXc jSSLaJ"
+                class="sc-bqGHjI cOMykO"
                 type="button"
               >
                 <svg
@@ -393,7 +393,7 @@ exports[`ProductDetails > renders correctly 1`] = `
             </div>
             <button
               aria-label="add Product One to cart"
-              class="sc-dlMBXc jSSLaJ"
+              class="sc-bqGHjI cOMykO"
               type="button"
             >
               <svg

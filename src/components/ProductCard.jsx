@@ -3,6 +3,7 @@ import { CartContext } from "./App";
 import { Plus, Minus } from "lucide-react";
 import { Link } from "react-router";
 import { formatPrice } from "../utils";
+import Button from "./Button";
 import styled from "styled-components";
 
 const ProductCardWrapper = styled.div`
@@ -84,25 +85,6 @@ const ProductCardControls = styled.div`
 const ProductQuantity = styled.div`
   display: flex;
   gap: 1rem;
-`;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: ${(props) => props.theme.spacing.space8};
-  background-color: ${(props) => props.theme.colours.lavender};
-  padding: ${(props) => props.theme.spacing.space6} ${(props) => props.theme.spacing.space12};
-  font-family: inherit;
-  font-weight: ${(props) => props.theme.fonts.weights.bold};
-  font-size: inherit;
-  border: none;
-  border-radius: 6.25rem;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colours.sapphire};
-    color: ${(props) => props.theme.colours.grey50};
-  }
 `;
 
 const StyledLink = styled(Link)`
