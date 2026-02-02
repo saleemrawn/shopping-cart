@@ -48,8 +48,29 @@ describe("ProductCard", () => {
     expect(screen.getByText("£9.99")).toBeInTheDocument();
   });
 
-  it("renders quantity input textbox", () => {
-    render(wrapWithProviders(mockProductCards));
+  it("renders quantity input textbox if page is cart", () => {
+    render(
+      wrapWithProviders(
+        <>
+          <ProductCard
+            id={mockProducts[0].id}
+            imgUrl={mockProducts[0].imgUrl}
+            name={mockProducts[0].name}
+            description={mockProducts[0].description}
+            price={mockProducts[0].price}
+            page="cart"
+          />
+          <ProductCard
+            id={mockProducts[1].id}
+            imgUrl={mockProducts[1].imgUrl}
+            name={mockProducts[1].name}
+            description={mockProducts[1].description}
+            price={mockProducts[1].price}
+            page="cart"
+          />
+        </>,
+      ),
+    );
 
     expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
@@ -62,8 +83,29 @@ describe("ProductCard", () => {
     expect(screen.getByRole("img", { name: /saucepans/i })).toBeInTheDocument();
   });
 
-  it("renders increase/decrease quantity buttons", () => {
-    render(wrapWithProviders(mockProductCards));
+  it("renders increase/decrease quantity buttons if page is cart", () => {
+    render(
+      wrapWithProviders(
+        <>
+          <ProductCard
+            id={mockProducts[0].id}
+            imgUrl={mockProducts[0].imgUrl}
+            name={mockProducts[0].name}
+            description={mockProducts[0].description}
+            price={mockProducts[0].price}
+            page="cart"
+          />
+          <ProductCard
+            id={mockProducts[1].id}
+            imgUrl={mockProducts[1].imgUrl}
+            name={mockProducts[1].name}
+            description={mockProducts[1].description}
+            price={mockProducts[1].price}
+            page="cart"
+          />
+        </>,
+      ),
+    );
 
     expect(screen.getByRole("button", { name: /increase quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /decrease quantity for airfryer/i })).toBeInTheDocument();
@@ -71,18 +113,32 @@ describe("ProductCard", () => {
     expect(screen.getByRole("button", { name: /decrease quantity for saucepans/i })).toBeInTheDocument();
   });
 
-  it("renders quantity input textbox", () => {
-    render(wrapWithProviders(mockProductCards));
+  it("renders quantity input textbox if page is cart", () => {
+    render(
+      wrapWithProviders(
+        <>
+          <ProductCard
+            id={mockProducts[0].id}
+            imgUrl={mockProducts[0].imgUrl}
+            name={mockProducts[0].name}
+            description={mockProducts[0].description}
+            price={mockProducts[0].price}
+            page="cart"
+          />
+          <ProductCard
+            id={mockProducts[1].id}
+            imgUrl={mockProducts[1].imgUrl}
+            name={mockProducts[1].name}
+            description={mockProducts[1].description}
+            price={mockProducts[1].price}
+            page="cart"
+          />
+        </>,
+      ),
+    );
 
     expect(screen.getByRole("spinbutton", { name: /quantity for airfryer/i })).toBeInTheDocument();
     expect(screen.getByRole("spinbutton", { name: /quantity for saucepans/i })).toBeInTheDocument();
-  });
-
-  it("renders add to cart button", () => {
-    render(wrapWithProviders(mockProductCards));
-
-    expect(screen.getByRole("button", { name: /add airfryer to cart/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /add saucepans to cart/i })).toBeInTheDocument();
   });
 
   it("renders remove button if page is cart", () => {

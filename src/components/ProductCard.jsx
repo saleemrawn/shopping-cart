@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./App";
-import { ShoppingCart, Plus, Minus, CircleCheckBig } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
+import { Link } from "react-router";
 import styled from "styled-components";
 
 const ProductCardWrapper = styled.div`
@@ -103,13 +104,8 @@ const Button = styled.button`
   }
 `;
 
-const AddedToCartButton = styled(Button)`
-  background-color: ${(props) => props.theme.colours.sapphire};
-  color: white;
-
-  &:disabled:hover {
-    background-color: ${(props) => props.theme.colours.sapphire};
-  }
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const Textbox = styled.input`
@@ -123,7 +119,7 @@ const Textbox = styled.input`
 const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page = null, display }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(quantity);
   const [addedToCart, setAddedToCart] = useState(false);
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart } = useContext(CartContext);
 
   useEffect(() => {
     const inCart = cartItems.some((item) => item.id === id);
@@ -163,68 +159,62 @@ const ProductCard = ({ id, imgUrl, name, description, price, quantity = 0, page 
 
   return (
     <>
-      <ProductCardWrapper display={display}>
-        <ProductImage src={imgUrl} alt={description} display={display} />
-        <ProductMainWrapper display={display}>
-          <ProductInfo>
-            <ProductName>{name}</ProductName>
-            <ProductPrice>£{price}</ProductPrice>
-          </ProductInfo>
-          <ProductCardControls display={display}>
-            <ProductQuantity>
-              <Button
-                type="button"
-                aria-label={`decrease quantity for ${name}`}
-                onClick={handleDecreaseQuantity}
-                disabled={page !== "cart" && addedToCart}>
-                <Minus />
-              </Button>
-              <label id={`${id}-quantity`} hidden>
-                Quantity for {name}
-              </label>
-              <Textbox
-                type="number"
-                value={selectedQuantity}
-                aria-labelledby={`${id}-quantity`}
-                onChange={handleQuantityChange}
-                disabled={page !== "cart" && addedToCart}
-              />
-              <Button
-                type="button"
-                aria-label={`increase quantity for ${name}`}
-                onClick={handleIncreaseQuantity}
-                disabled={page !== "cart" && addedToCart}>
-                <Plus />
-              </Button>
-            </ProductQuantity>
+      {page === "cart" ? (
+        <ProductCardWrapper display={display}>
+          <ProductImage src={imgUrl} alt={description} display={display} />
+          <ProductMainWrapper display={display}>
+            <ProductInfo>
+              <ProductName>{name}</ProductName>
+              <ProductPrice>£{price}</ProductPrice>
+            </ProductInfo>
 
-            {page !== "cart" && !addedToCart && (
-              <Button
-                type="button"
-                aria-label={`add ${name} to cart`}
-                onClick={() => {
-                  addToCart({ id: id, image: imgUrl, title: name, description: description, price: price, quantity: selectedQuantity });
-                  setAddedToCart(true);
-                }}>
-                <ShoppingCart size={20} /> Add to Cart
-              </Button>
-            )}
+            <ProductCardControls>
+              <ProductQuantity>
+                <Button
+                  type="button"
+                  aria-label={`decrease quantity for ${name}`}
+                  onClick={handleDecreaseQuantity}
+                  disabled={page !== "cart" && addedToCart}>
+                  <Minus />
+                </Button>
+                <label id={`${id}-quantity`} hidden>
+                  Quantity for {name}
+                </label>
+                <Textbox
+                  type="number"
+                  value={selectedQuantity}
+                  aria-labelledby={`${id}-quantity`}
+                  onChange={handleQuantityChange}
+                  disabled={page !== "cart" && addedToCart}
+                />
+                <Button
+                  type="button"
+                  aria-label={`increase quantity for ${name}`}
+                  onClick={handleIncreaseQuantity}
+                  disabled={page !== "cart" && addedToCart}>
+                  <Plus />
+                </Button>
+              </ProductQuantity>
 
-            {page !== "cart" && addedToCart && (
-              <AddedToCartButton disabled>
-                <CircleCheckBig size={20} />
-                Added to Cart
-              </AddedToCartButton>
-            )}
-
-            {page === "cart" && (
               <Button type="button" aria-label={`remove ${name} from cart`} onClick={() => removeFromCart(id)}>
                 Remove
               </Button>
-            )}
-          </ProductCardControls>
-        </ProductMainWrapper>
-      </ProductCardWrapper>
+            </ProductCardControls>
+          </ProductMainWrapper>
+        </ProductCardWrapper>
+      ) : (
+        <StyledLink to={`/products/${id}`} viewTransition>
+          <ProductCardWrapper display={display}>
+            <ProductImage src={imgUrl} alt={description} display={display} />
+            <ProductMainWrapper display={display}>
+              <ProductInfo>
+                <ProductName>{name}</ProductName>
+                <ProductPrice>£{price}</ProductPrice>
+              </ProductInfo>
+            </ProductMainWrapper>
+          </ProductCardWrapper>
+        </StyledLink>
+      )}
     </>
   );
 };
